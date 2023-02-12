@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="wofa">
+    <title>KitakantoSchool-site</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <!-- <link rel="stylesheet" href="./CSS/style.css"> -->
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/animation.css">
+    <link rel="stylesheet" href="./CSS/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/caef606916.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js" defer></script>
+    <link rel="stylesheet" href="https://use.typekit.net/pvo6lzj.css">
+    <script src="./JS/main.js" defer></script>
+    <script>
+        (function(d) {
+          var config = {
+            kitId: 'mps3hso',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+      </script>
+</head>
+
+<body class="display_fixde">
+    <div class="loading">
+        <div class="loading_inner">
+            <div class="loading_logo">
+                <img src="./IMAGE/school_icon.jpg" alt="logo" class="loading_logo">
+            </div>
+        </div>
+    </div>
+    <!-- Navigation button -->
+    <header>
+        <button type="button" class="nav_btn">
+            <span class="nav_btn_span"></span>
+            <span class="nav_btn_span"></span>
+        </button>
+        <!-- Navigation menu -->
+        <div class="nav_wrap">
+            <nav class="nav_menu">
+                <ul>
+                    <li>
+                        <a href="#" class="nav_link top_nav"> TOP</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>TOP</span>
+                                <span>TOP</span>
+                                <span>TOP</span>
+                                <span>TOP</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#about" class="nav_link about_nav">ABOUT</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>ABOUT</span>
+                                <span>ABOUT</span>
+                                <span>ABOUT</span>
+                                <span>ABOUT</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#job" class="nav_link job_nav">JOB</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>JOB</span>
+                                <span>JOB</span>
+                                <span>JOB</span>
+                                <span>JOB</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#course" class="nav_link course_nav">COURSE</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>COURSE</span>
+                                <span>COURSE</span>
+                                <span>COURSE</span>
+                                <span>COURSE</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#apply" class="nav_link apply_nav">APPLY</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>APPLY</span>
+                                <span>APPLY</span>
+                                <span>APPLY</span>
+                                <span>APPLY</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#acceptance" class="nav_link acceptance_nav">ACCEPTANCE</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>ACCEPTANCE</span>
+                                <span>ACCEPTANCE</span>
+                                <span>ACCEPTANCE</span>
+                                <span>ACCEPTANCE</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#address" class="nav_link address_nav">ADDRESS</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>ADDRESS</span>
+                                <span>ADDRESS</span>
+                                <span>ADDRESS</span>
+                                <span>ADDRESS</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#contract" class="nav_link contract_nav">CONTRACT</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>CONTRACT</span>
+                                <span>CONTRACT</span>
+                                <span>CONTRACT</span>
+                                <span>CONTRACT</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#benefit" class="nav_link benefit_nav">BENEFIT</a>
+                        <div class="marpuee">
+                            <div class="marpuee_inner" aria-hidden="true">
+                                <span>BENEFIT</span>
+                                <span>BENEFIT</span>
+                                <span>BENEFIT</span>
+                                <span>BENEFIT</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div id="viewport">
+        <div id="scroll_continer">
+            <main>
+                <div class="title_wrap">
+                    <!-- title -->
+                    <section class="hero_title" id="top">
+                        <h1>
+                            <span class="hero_kitakan text_division_k_1">K</span>
+                            <span class="hero_kitakan text_division_i_2">I</span>
+                            <span class="hero_kitakan text_division_t_3">T</span>
+                            <span class="hero_kitakan text_division_a_4">A</span>
+                            <span class="hero_kitakan text_division_k_5">K</span>
+                            <span class="hero_kitakan text_division_a_6">A</span>
+                            <span class="hero_kitakan text_division_n_7">N</span>
+                            <span class="hero_kitakan text_division_t_8">T</span>
+                            <span class="hero_kitakan text_division_o_9">O</span>
+                            <br>
+                            <span class="hero_school text_division_s_10">S</span>
+                            <span class="hero_school text_division_c_11">C</span>
+                            <span class="hero_school text_division_h_12">H</span>
+                            <span class="hero_school text_division_o_13">O</span>
+                            <span class="hero_school text_division_o_14">O</span>
+                            <span class="hero_school text_division_l_15">L</span>
+                            <br>
+                            <span class="hero_sapporo text_division_s_1">S</span>
+                            <span class="hero_sapporo text_division_a_2">A</span>
+                            <span class="hero_sapporo text_division_p_3">P</span>
+                            <span class="hero_sapporo text_division_p_4">P</span>
+                            <span class="hero_sapporo text_division_o_5">O</span>
+                            <span class="hero_sapporo text_division_r_6">R</span>
+                            <span class="hero_sapporo text_division_o_7">O</span>
+                        </h1>
+                    </section>
+                </div>
+                <div class="main_wrap">
+                    <section id="hello_kitakan">
+                        <div class="hello_kitakan_wrap">
+                            <h2>
+                                <span class="text_division_h_1">H</span>
+                                <span class="text_division_e_2">E</span>
+                                <span class="text_division_l_3">L</span>
+                                <span class="text_division_l_4">L</span>
+                                <span class="text_division_o_5">O</span>
+                                <br>
+                                <span class="text_division_k_6">K</span>
+                                <span class="text_division_i_7">I</span>
+                                <span class="text_division_t_8">T</span>
+                                <span class="text_division_a_9">A</span>
+                                <span class="text_division_k_10">K</span>
+                                <span class="text_division_a_11">A</span>
+                                <span class="text_division_n_12">N</span>
+                                <span class="text_division_1_13">!</span>
+                            </h2>
+                        </div>
+                    </section>
+
+                    <!-- about -->
+                    <section id="about">
+                        <div class="title_about">
+                            <h1>ABOUT</h1>
+                            <h2>北関東学院は</h2>
+                        </div>
+                        <div class="text_about">
+                            <p class="text_division text_main">
+                                <span class="animation_target text_main_1 orange_text">北関東学院</span>
+                                <span class="animation_target text_main_2">は</span>
+                                <br>
+                                <span class="animation_target text_main_3">パソコン関連の</span>
+                                <br class="sp_br">
+                                <span class="animation_target text_main_4 about_span_a">仕事を</span>
+                                <span class="animation_target text_main_5">目指す</span>
+                                <br>
+                                <span class="animation_target text_main_6">職業訓練校です</span>
+                            </p>
+                            <div class="img_wrap_lesson_desk">
+                                <img src="./IMAGE/lesson_desk.jpg" alt="photo" class="lesson_desk">
+                            </div>
+                            <div class="about_background_blue_box"></div>
+                            <p class="text_division text_sub">
+                                <span class="animation_target">パソコンの初基礎から</span>
+                                <br class="sp_br">
+                                <span class="animation_target">専門的なプログラミングまで</span>
+                                <br class="sp_br">
+                                <span class="animation_target">様々な</span>
+                                <br>
+                                <span class="animation_target">コースがあります</span>
+                                <br>
+                                <span class="animation_target">就職に関してお悩みの方</span>
+                                <br class="sp_br">
+                                <span class="animation_target">興味があった職種に</span>
+                                <br class="sp_br">
+                                <span class="animation_target">就きたい方</span>
+                                <br>
+                                <span class="animation_target">などを</span>
+                                <span class="animation_target orange_text">全力でサポート</span>
+                                <span class="animation_target">します</span>
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- job -->
+                    <section id="job">
+                        <div class="title_job">
+                            <h1>JOB</h1>
+                            <h2>目指せる職業</h2>
+                        </div>
+                        <div class="flex_job">
+                            <div class="text_job">
+                                <p class="text_main">
+                                    <span>システムエンジニア</span>
+                                    <br>
+                                    <span>WEBデザイナー</span>
+                                    <br>
+                                    <span>一般事務</span>
+                                    <br>
+                                    <span>他にも</span>
+                                    <span class="orange_text">いろいろ</span>
+                                </p>
+                                <p class="text_sub">
+                                    <span>この職業訓練校で</span>
+                                    <br class="sp_br">
+                                    <span>得られるスキルで</span>
+                                    <br>
+                                    <span>パソコンを使用するような</span>
+                                    <br>
+                                    <span>業務に就くことが</span>
+                                    <br class="sp_br">
+                                    <span>出来るようになれます</span>
+                                    <br>
+                                    <span>あなたも目指しませんか？</span>
+                                </p>
+                                <a href="#" class="readmore_link job_link">
+                                    <p class="readmore_text readmore_job">ReadMore</p>
+                                    <p class="readmore_text readmore_job_j">より詳しく</p>
+                                </a>
+                            </div>
+                            <div class="image_job">
+                                <img src="./IMAGE/w_pc.jpg" alt="photo" class="w_pc">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- course -->
+                    <section id="course">
+                        <div class="title_course">
+                            <h1>COURSE</h1>
+                            <h2>コースの種類</h2>
+                        </div>
+                        <div class="main_text_wrap">
+                            <p class="text_main">
+                                <span>”なりたい”に応じて</span>
+                                <br>
+                                <span>選べる</span>
+                                <span class="orange_text">3つのコース</span>
+                            </p>
+                        </div>
+                        <div class="flex_course">
+                            <div class="image_course">
+                                <img src="./IMAGE/lesson_time.jpg" alt="photo" class="lesson_time">
+                            </div>
+                            <div class="text_course">
+                                <p class="text_sub">
+                                    <span>あなたやりたい仕事</span>
+                                    <br class="sp_br">
+                                    <span>にあったスキルを</span>
+                                    <br>
+                                    <span>身に付けられるコースを</span>
+                                    <br class="sp_br">
+                                    <span>選べます。</span>
+                                    <br>
+                                    <span>あなたの興味が</span>
+                                    <br class="sp_br">
+                                    <span>向く職業は</span>
+                                    <br class="sp_br">
+                                    <span>何ですか？</span>
+                                </p>
+                                <a href="#" class="readmore_link course_link">
+                                    <p class="readmore_text readmore_course">ReadMore</p>
+                                    <p class="readmore_text readmore_course_j">より詳しく</p>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- secondary -->
+                    <div class="secondary">
+                        <div class="secondary_blue">
+                            <img src="./IMAGE/corridor.jpg" alt="photo" class="corridor">
+                            <h2>
+                                <span class="text_division_kon_1">今</span>
+                                <br class="sp_br">
+                                <span class="text_division_go_2">後</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ni_3">に</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_tsuna_4">繋</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ga_5">が</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ru_6">る</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ji_7 orange_text">自</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_sin_8 orange_text">信</span>
+                                <br class="sp_br">
+                                <span class="text_division_to_9">と</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_su_10 orange_text">ス</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ki_11f orange_text">キ</span>
+                                <br class="sp_br">
+                                <span class="text_divisio_ru_12 orange_text">ル</span>
+                                <br class="sp_br">
+                                <span class="text_division_wo_13">を</span>
+                            </h2>
+                        </div>
+                        <div class="secondary_white">
+                            <h2>
+                                <span class="text_division_tano_1 orange_text">楽</span>
+                                <br class="sp_br">
+                                <span class="text_division_shi_2 orange_text">し</span>
+                                <br class="sp_br">
+                                <span class="text_division_ku_3 orange_text">く</span>
+                                <br class="sp_br">
+                                <span class="text_division_gaku_4">学</span>
+                                <br class="sp_br">
+                                <span class="text_division_syu_5">習</span>
+                                <br class="sp_br">
+                                <span class="text_division_shi_6 orange_text">し</span>
+                                <br class="sp_br">
+                                <span class="text_division_x_7 orange_text">っ</span>
+                                <br class="sp_br">
+                                <span class="text_division_ka_8 orange_text">か</span>
+                                <br class="sp_br">
+                                <span class="text_division_ri_9 orange_text">り</span>
+                                <br class="sp_br">
+                                <span class="text_division_gaku_10">学</span>
+                                <br class="sp_br">
+                                <span class="text_division_syu_11">習</span>
+                            </h2>
+                            <img src="./IMAGE/book.jpg" alt="photo" class="book">
+                        </div>
+                    </div>
+
+                    <!-- apply -->
+                    <section id="apply">
+                        <div class="title_apply">
+                            <h1>APPLY</h1>
+                            <h2>申し込み手順</h2>
+                        </div>
+                        <div class="text_apply">
+                            <p class="text_main">
+                                <span>訓練を受けたいと思ったら</span>
+                                <br>
+                                <span class="orange_text">選考会</span>
+                                <span>に申し込みを</span>
+                            </p>
+                            <p class="text_sub">
+                            <ul>
+                                <li>
+                                    <span>お住まいの地域担当の</span>
+                                    <br class="sp_br">
+                                    <span>ハローワークで</span>
+                                    <br>
+                                    <span>職業訓練を</span>
+                                    <br class="sp_br">
+                                    <span>受けたい旨を伝える</span>
+                                </li>
+                                <br>
+                                <li>
+                                    <span>受講申込書等の</span>
+                                    <br class="sp_br">
+                                    <span>書類をもらう</span>
+                                </li>
+                                <br>
+                                <li>
+                                    <span>必要事項に記載し</span>
+                                    <br class="sp_br">
+                                    <span>ハローワークに提出</span>
+                                    <br>
+                                    <span>受付印をもらい</span>
+                                    <br class="sp_br">
+                                    <span>当校に持参または郵便</span>
+                                </li>
+                                <br>
+                                <li>
+                                    <span>選考会を受けます</span>
+                                </li>
+                                <br>
+                                <li>
+                                    <span>後日合否発表の通知を</span>
+                                    <br>
+                                    <span>送らせていただきます</span>
+                                </li>
+                            </ul>
+                            </p>
+
+                            <!-- tertiary -->
+                            <div class="tertiary" id="tertiary">
+                                <div class="tertiary_photo_wrap">
+                                    <img src="./IMAGE/study.jpg" alt="photo" class="study">
+                                </div>
+                                <h2>
+                                    <span class="text_division_tano_tomo_1">共</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_ni_2">に</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_mana_3">学</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_bu_4">ぶ</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_naka_5 orange_text">仲</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_ma_6 orange_text">間</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_mo_7">も</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_i_8">い</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_ma_9">ま</span>
+                                    <br class="sp_br">
+                                    <span class="text_division_tano_su_10">す</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- acceptance -->
+                    <section id="acceptance">
+                        <div class="title_acceptance">
+                            <h1>ACCEPTANCE</h1>
+                            <h2>受付情報</h2>
+                        </div>
+
+                        <div class="text_acceptance">
+                            <p class="text_main">
+                                <span class="text_division_tano_gen_1">現</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_zai_2">在</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_u_3">受</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_ke_4">け</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_tsu_5">付</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_ke_6">け</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_te_7">て</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_i_8">い</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_ru_9">る</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_ko_10 orange_text">コ</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_-_11 orange_text">ー</span>
+                                <br class="sp_br">
+                                <span class="text_division_tano_su_12 orange_text">ス</span>
+                            </p>
+                        </div>
+                        <div class="acceptance_corse">
+                            <div class="group_design">
+                                <a href="#" class="group web_design">
+                                    <p class="acc_corse_text name">WEBデザイン</p>
+                                    <p class="acc_corse_text course">コース</p>
+                                </a>
+                                <img src="./IMAGE/photo_design.jpg" alt="photo" class="photo_design">
+                            </div>
+                            <div class="group_base">
+                                <a href="#" class="group pc_base">
+                                    <p class="acc_corse_text name">パソコン基礎</p>
+                                    <p class="acc_corse_text course">コース</p>
+                                </a>
+                                <img src="./IMAGE/photo_base.jpg" alt="photo" class="photo_base">
+                            </div>
+                            <div class="group_programming">
+                                <a href="#" class="group it_programming">
+                                    <p class="acc_corse_text name">ITプログラミング</p>
+                                    <p class="acc_corse_text course">コース</p>
+                                </a>
+                                <img src="./IMAGE/photo_programming.jpg" alt="photo" class="photo_programming">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- address -->
+                    <section id="address">
+                        <div class="title_address">
+                            <h1>ADDRESS</h1>
+                            <h2>住所</h2>
+                        </div>
+                        <div class="kitakan_address">
+                            <div class="map_info">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.63696260811!2d141.35333286547825!3d43.049069329146604!2m3!
+                                    1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2a27ee23ea55%3A0xdedc877edeaf642!2z5YyX6Zai5p2x5a2m6Zmi!5e0!3m2!1sja!2sjp!4v1665207063239!5m2!1sja!2sjp"
+                                    width="500" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <div class="content_address">
+                                <address>
+                                    <span class="postal_code">〒064-0809</span>
+                                    <br>
+                                    <span class="do_shi_ku">北海道札幌市中央区</span>
+                                    <br class="sp_br">
+                                    <span class="jo_chome">南9条西3丁目</span>
+                                    <br>
+                                    <span class="building">2-10 札幌K.Sビル 6F</span>
+                                </address>
+                                <a href="https://www.google.com/maps/place/%E5%8C%97%E9%96%A2%E6%9D%B1%E5%AD%A6%E9%99%A2/
+                                    @43.048351,141.356,15z/data=!4m5!3m4!1s0x0:0xdedc877edeaf642!8m2!3d43.0491034!4d141.3555171?hl=ja"
+                                    class="readmore_link address_link">
+                                    <p class="readmore_text readmore_address">ReadMore</p>
+                                    <p class="readmore_text readmore_address_j">より詳しく</p>
+                                </a>
+                                <div class="open_time">
+                                    <span>営業月曜</span>
+                                    <span>月曜〜金曜</span>
+                                    <span>9:00〜18:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- contract & benefit -->
+                    <!-- contract -->
+                    <div class="ap_and_be">
+                        <section id="contract">
+                            <div class="title_contract">
+                                <h1>CONTRACT</h1>
+                                <h2>連絡</h2>
+                            </div>
+                            <div class="text_contract">
+                                <p class="text">
+                                    <span class="orange_text">説明会の予約</span>
+                                    <span>やその他</span>
+                                    <br>
+                                    <span class="orange_text">お問合せ</span>
+                                    <span>を</span>
+                                    <br>
+                                    <span>承っておりますので</span>
+                                    <br>
+                                    <span>お気軽にご連絡下さい。</span>
+                                </p>
+                                <p class="phone_nanbar">
+                                    011−232−5508
+                                </p>
+                            </div>
+                        </section>
+                        <!-- benefit -->
+                        <section id="benefit">
+                            <div class="title_benefit">
+                                <h1>BENEFIT</h1>
+                                <h2>給付金</h2>
+                            </div>
+                            <div class="text_benefit">
+                                <p class="text">
+                                    <span class="orange_text">月10万円給付</span>
+                                    <br>
+                                    <span>求職者支援制度に関して</span>
+                                    <br>
+                                    <span>の詳しい情報は</span>
+                                    <br>
+                                    <span class="orange_text">厚生労働省</span>
+                                    <span>公式サイトを</span>
+                                    <br><span>ご覧ください。</span>
+                                </p>
+                                <a class="readmore_link benefit_link" href="#">
+                                    <p class="readmore_text readmore_benefit">ReadMore</p>
+                                    <p class="readmore_text readmore_benefit_j">より詳しく</p>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+            <!-- footer -->
+            <footer>
+                <div class="footer_wrap">
+                    <div class="hello_work" id="hello_work">
+                        <a href="https://jsite.mhlw.go.jp/hokkaido-hellowork/list/sapporo/shisetsu/hw-sapporo.html"
+                            class="hello_work_link hello_work_sappro">ハローワーク札幌</a>
+                        <a href="https://jsite.mhlw.go.jp/hokkaido-hellowork/list/sapporo/shisetsu/hw-kita.html"
+                            class="hello_work_link hello_work_north">ハローワーク札幌北</a>
+                        <a href="https://jsite.mhlw.go.jp/hokkaido-hellowork/list/sapporo/shisetsu/hw-higashi2.html"
+                            class="hello_work_link hello_work_east">ハローワーク札幌東</a>
+                        <a href="https://jsite.mhlw.go.jp/hokkaido-hellowork/list/sapporo/shisetsu/hw-plaza.html"
+                            class="hello_work_link hello_work_plaza">ハローワークプラザ</a>
+                    </div>
+                    <div class="image_link">
+                        <div class="top">
+                            <a href="#"><i class="fa-solid fa-circle-up"></i></a>
+                        </div>
+                        <div class="follow">
+                            <a href="https://www.facebook.com/people/%E5%8C%97%E9%96%A2%E6%9D%B1%E5%AD%A6%E9%99%A2/100052487361007/"
+                                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    <div class="image_logo">
+                        <img src="./IMAGE/school_icon.jpg" alt="logo" class="school_icon">
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

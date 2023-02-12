@@ -1,0 +1,300 @@
+/* Preliminarise */
+@charset "utf-8";
+
+/* loading */
+.display_fixde {
+    position: fixed;
+}
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    background-color: var(--base_white);
+    opacity: 1;
+}
+
+.loading_finish {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+
+.loading_inner {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9001;
+}
+
+.loading_logo {
+    width: 300px;
+    height: auto;
+    animation: loading-screen 1.7s forwards ease-out;
+}
+
+@keyframes loading-screen {
+    from {
+       opacity: 0;
+       transform: scaleY(-1);
+    }
+    to {
+       opacity: 1;
+       transform: scaleY(1); 
+    }
+}
+
+/* Title animation */
+.hero_kitakan:hover {
+    color: var(--accent_color);
+    transition: all .2s 0s ease-in-out;
+}
+
+.hero_school:hover {
+    color: var(--accent_color);
+    transition: all .2s 0s ease-in-out;
+}
+
+.hero_sapporo:hover {
+    color: var(--text_white);
+    transition: all .2s 0s ease-in-out;
+}
+
+/* Section about animation */
+.title_about h1,
+.title_about h2 {
+    transition: all 0.4s ease-in-out;
+}
+
+/* ここから始める　テキストアニメーション　フェードイン　フォント検討 */
+
+
+.about_background_blue_box {
+    width: 0vw;
+    height: 790px;
+    position: absolute;
+    top: 350px;
+    left: 0;
+    z-index: -500;
+    background-color: var(--base_blue);
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation button scroll fadein out*/
+.fade_in_first {
+    opacity: 1;
+    transform: translateY(5px);
+    transition: all .1s 3s ease-out;
+}
+
+.fade_out {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all .1s .2s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.fade_in {
+    opacity: 1;
+    transform: translateY(5px);
+    transition: all .1s .2s ease-out;
+}
+
+/* Navigation button hover & crick */
+button:hover .nav_btn_span:nth-child(1) {
+    width: clamp(52px, 4.8vw, 110px);
+    background-color: #6e9bef;
+    transition: all .25s 0s ease-out;
+}
+
+button:hover .nav_btn_span:nth-child(2) {
+    width: clamp(52px, 4.8vw, 110px);
+    background-color: #6e9bef;
+    transition: all .25s 0s ease-out;
+}
+
+button:active .nav_btn_span {
+    width: 3.9vw;
+    transition:  all 0s 0s;
+}
+
+/* Navigation span animation */
+.active .nav_btn_span:nth-child(1) {
+    background-color: #fff;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transition: all .5s .2s ease-out;
+}
+
+.active .nav_btn_span:nth-child(2) {
+    background-color: #fff;
+    transform: translate(-50%, 50%) rotate(-45deg);
+    transition: all .5s .2s ease-out;
+}
+
+.open {
+    transform: translate(0);
+}
+
+/* Navigation body */
+/* Navigation link hover animation */
+.nav_link:hover {
+    position: relative;
+    transition-duration: 0.25s;
+	opacity: 0;
+}
+
+/* Navigation text movement */
+.marpuee {
+    overflow: hidden;
+}
+
+.marpuee_inner {
+    width: fit-content;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(var(--move_initial), 0, 0);
+    animation: marpuee 3.5s linear infinite;
+    animation-play-state: paused;
+    color: #ffffff;
+    mix-blend-mode: overlay;
+}
+
+@keyframes marpuee {
+    0% {
+        transform: translate3d(var(--move_initial), 0, 0);
+    }
+    100% {
+        transform: translate3d(var(--move_final), 0, 0);
+    }
+}
+
+.top_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: -3.529vw;
+    left: 0;
+    z-index: 500;
+}
+
+.about_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 1.838vw;
+    left: 0;
+    z-index: 500;
+}
+
+.job_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 7.132vw;
+    left: 0;
+    z-index: 500;
+}
+
+.course_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 12.5vw;
+    left: 0;
+    z-index: 500;
+}
+
+.apply_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 17.647vw;
+    left: 0;
+    z-index: 500;
+}
+
+.acceptance_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 23.162vw;
+    left: 0;
+    z-index: 500;
+}
+
+.address_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 28.309vw;
+    left: 0;
+    z-index: 500;
+}
+
+.contract_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 33.824vw;
+    left: 0;
+    z-index: 500;
+}
+
+.benefit_nav + .marpuee .marpuee_inner {
+    position: absolute;
+    top: 39.191vw;
+    left: 0;
+    z-index: 500;
+}
+
+.marpuee span {
+    font-family: alternate-gothic-condensed-a, "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 16.176vw;
+    padding: 0 6.985vw 0;
+}
+
+.nav_link:hover + .marpuee .marpuee_inner {
+    animation-play-state: running;
+    opacity: 1;
+    transition: all .1s .1s ease-out;
+}
+
+
+/* Readmore link hover */
+.readmore_link:hover {
+    color: var(--link_text_hover_color);
+    transition: all .4s .05s ease-out;
+}
+
+.readmore_link:hover .readmore_text::after {
+    background-color: var(--link_text_hover_color);
+    transition: all .4s 0s ease-out;
+}
+
+/* Acceptance course link */
+.group:hover .acc_corse_text {
+    color: var(--link_text_hover_color);
+    transition: all .4s 0s ease-out;
+}
+
+/* Footer */
+/* Hello work link hover */
+.hello_work_link:hover {
+    color: var(--link_text_hover_color);
+    transition: all .4s .05s ease-out;
+}
+
+.hello_work_link:hover::after {
+    background-color: var(--link_text_hover_color);
+    transition: all .4s 0s ease-out;
+}
+
+/* Footer icon */
+.fa-circle-up:hover {
+    color: var(--link_text_hover_color);
+    transition: all .4s 0s ease-out;
+}
+
+.fa-facebook:hover {
+    color: var(--link_text_hover_color);
+    transition: all .4s 0s ease-out;
+}
