@@ -16,9 +16,9 @@
     --base_white:#F2EDED;
     --text_white:#f5f3f3;
     --base_blue: #104C80;
+    --blue_black: #071a2b;
     --base_text: #393939;
     --main_wrap_color: linear-gradient(180deg, #F2EDED 5%, #104C80 6%);
-    --change_color_black: #000;
     --contract_background: #E3E3E3;
     --benefit_background: #EBEBEB;
     --read_moro_width: 6.985vw;
@@ -124,12 +124,11 @@ button .nav_btn_span:nth-child(2) {
 }
 
 /* Navigation link text */
-
 .nav_wrap {
     width: 100vw;
     height: 100vh;
+    opacity: 0.96;
     background: var(--base_blue);
-    opacity: 0.9;
     transform: translateX(-105%);
     transition: all 0.3s .5s ease-out;
     position: fixed;
@@ -307,7 +306,7 @@ Hero title
 .main_wrap {
     width: 100vw;
     position: absolute;
-    top: 100%;
+    top: 100vh;
     z-index: 200;
     transition: .4s;
     background: var(--main_wrap_color);
@@ -316,7 +315,7 @@ Hero title
 /* HELLO KITAKAN */
 #hello_kitakan {
     width: 100vw;
-    height: 142.059vw;
+    height: 100vh;
     padding-top: 0.001vw;
     position: sticky;
     top: 0;
@@ -400,6 +399,10 @@ Hero title
 }
 
 /* Section about */
+#about {
+    padding-top: 100vh;
+}
+
 .title_about {
     text-align: center;
     margin: var(--section_title_margin);
@@ -418,7 +421,8 @@ Hero title
     font-size: var(--section_title_size_j);
     line-height: var(--section_title_size_j);
     color: var(--base_blue);
-    opacity: .8;
+    opacity: 0.8;
+    letter-spacing: -0.04em;
 }
 
 .text_about {
@@ -436,6 +440,7 @@ Hero title
 
 .text_about .text_main span {
     margin: 0 -0.588vw 0;
+    letter-spacing: -0.04em;
 }
 
 .text_about .text_main .sp_br + span {
@@ -447,15 +452,18 @@ Hero title
 }
 
 .img_wrap_lesson_desk {
-    display: inline-block;
+    position: relative;
     width: 73.529vw;
     height: 42.647vw;
     overflow: hidden;
 }
 
 .lesson_desk {
-    width: calc(73.529vw * 1.5);
+    position: absolute;
+    top: 0;
+    width: auto;
     height: calc(42.647vw * 1.5);
+    object-fit: cover;
 }
 
 .text_about .text_sub {
@@ -495,7 +503,8 @@ Hero title
     font-size: var(--section_title_size_j);
     line-height: var(--section_title_size_j);
     color: var(--base_text);
-    opacity: .8;
+    opacity: 0.8;
+    letter-spacing: -0.04em;
 }
 
 .flex_job {
@@ -513,13 +522,17 @@ Hero title
     margin: 0 10.882vw 1em 0;
 }
 
+.flex_job .text_main span {
+    letter-spacing: -0.04em;
+}
+
 .flex_job .text_main .orange_text {
     display: inline-block;
     margin: 0 -1.103vw 0;    
 }
 
 .flex_job .text_main span:first-child {
-    letter-spacing: -.12em;
+    letter-spacing: -0.12em;
     margin-left: -0.441vw;
 }
 
@@ -580,7 +593,8 @@ Hero title
     font-size: var(--section_title_size_j);
     line-height: var(--section_title_size_j);
     color: var(--text_white);
-    opacity: .8;
+    opacity: 0.8;
+    letter-spacing: -0.04em;
 }
 
 #course .text_main {
@@ -591,6 +605,14 @@ Hero title
     margin: 0 var(--body_side_margin) 1em auto;
     display: table;
     text-align: right;
+}
+
+#course .text_main span {
+    letter-spacing: -0.04em;
+}
+
+#course .text_main span:first-child {
+    letter-spacing: -0.06em;
 }
 
 #course .flex_course {
@@ -1090,8 +1112,10 @@ iframe{
 }
 
 /* Footer */
-footer {
+.footer_wrap {
     height: 100vh;
+    width: 100vw;
+    text-align: center;
 }
 
 /* Hello work link */
