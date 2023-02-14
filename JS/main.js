@@ -56,23 +56,24 @@ window.addEventListener('scroll' , () => {
 const heroKitakan = document.querySelectorAll(".hero_kitakan");
 const heroSchool = document.querySelectorAll(".hero_school");
 const heroSapporo = document.querySelectorAll(".hero_sapporo");
+const blueBlack = '#64a4dc';
 
 gsap.set(heroKitakan,{
-    // opacity: 0,
     y: -100,
     opacity:0,
+    color: blueBlack,
 });
 
 gsap.set(heroSchool,{
-    // opacity: 0,
     y: -100,
     opacity:0,
+    color: blueBlack,
 });
 
 gsap.set(heroSapporo,{
-    // opacity: 0,
     y: -100,
     opacity:0,
+    color: blueBlack,
 });
 
 // Processing from finish loading //
@@ -171,38 +172,125 @@ const titleAboutH1 = document.querySelector(".title_about h1");
 const titleAboutH2 = document.querySelector(".title_about h2");
 const helloKitakan = document.querySelector("#hello_kitakan");
 const helloKitakanWrapH2 = document.querySelector(".hello_kitakan_wrap h2");
-const aboutTedtMain = document.querySelector(".text_about .text_main");
+const aboutTextMain = document.querySelector(".text_about .text_main");
 const animationTargets = document.querySelectorAll(".animation_target");
 
 // About title animation
-let once = false;
-    window.addEventListener('scroll', () => {
-        const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
-            if(titleAboutPosition <= window.innerHeight * 0.5 && once !== true) {
-                once = true;
-                console.log(`work`);
-                mainWrap.style.cssText = `
-                    background: var(--base_white);
-                `
-                titleAboutH1.style.cssText = `
-                    color: var(--base_text);
-                `
-                titleAboutH2.style.cssText = `
-                    color: var(--base_text);
-                `
-            };
-        });
+window.addEventListener('scroll', () => {
+const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
+    if(titleAboutPosition <= window.innerHeight * 0.5) {
+        console.log(`white`);
+        mainWrap.style.cssText = `
+            background: var(--base_white);
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--base_text);
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--base_text);
+        `
+    } else if(titleAboutPosition <= window.innerHeight * 1.1) {
+        console.log(`blue`);
+        mainWrap.style.cssText = `
+            background: var(--base_blue);
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--text_white);
+        `
+    } else {
+        console.log(`black`);
+        mainWrap.style.cssText = `
+            background: var(--blue_black);
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--text_white);
+        `
+    };
+});
         
 // About text animation    
 // // Element positioning and scroll animation
-document.addEventListener('scroll', () => {
-    animationTargets.forEach(animationTarget => {
-        const getElementDistance = animationTarget.getBoundingClientRect().top;
-        if(getElementDistance < window.innerHeight * 0.7) {
-            animationTarget.classList.add("textShow");
-            console.log(`!`);
-        };
-    });
+const tlabout = gsap.timeline({repeat: 0, repeatDelay: 0});
+const textMain1 = document.querySelector(".text_main_1");
+const textMain2 = document.querySelector(".text_main_2");
+const textMain3 = document.querySelector(".text_main_3");
+const textMain4 = document.querySelector(".text_main_4");
+const textMain5 = document.querySelector(".text_main_5");
+const textMain6 = document.querySelector(".text_main_6");
+// about text time line animation dulation
+const aTMD = 0.1;
+
+gsap.set( animationTargets,{
+    opacity: 0,
+});
+
+let tlaboutOnce = false;
+window.addEventListener('scroll', () => {
+const aboutTextmainPosition = aboutTextMain.getBoundingClientRect().top;
+    if(aboutTextmainPosition <= window.innerHeight * 0.7 && tlaboutOnce === false) {
+        console.log(`about text main gsap!!!!`);
+        tlaboutOnce = true;
+        tlabout
+        .to(textMain1, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, aTMD)
+
+        .to(textMain2, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, 0.2)
+
+        .to(textMain3, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, 0.4)
+
+        .to(textMain4, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, 0.6)
+
+        .to(textMain5, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, 0.8)
+
+        .to(textMain6, {
+            opacity: 1,
+            ease: 'Power3.easeOut',
+        }, 1)
+        
+        .fromTo(textMain1, {
+            color: baseText,
+            ease: 'Power3.easeOut',
+        },{
+            color: accentColor,
+            ease: 'Power3.easeOut',
+        }, 1.4);
+    };
+});
+
+//about_background_blue_box animation
+const aBBB = document.querySelector(".about_background_blue_box");
+let aBBBOnce = false;
+
+window.addEventListener('scroll', () => {
+    const aBBBPosition = aBBB.getBoundingClientRect().top;
+    if(aBBBPosition <= window.innerHeight * 0.8 && aBBBOnce === false) {
+        console.log(`about background animation!!!`);
+        aBBBOnce = true;
+        aBBB.style.cssText = `
+            width: 100vw;
+            transition: 1.2s cubic-bezier(0.135, 0.53, 0.139, 0.974);
+        `
+    };
 });
 
 // Gsap ScrollTrgger//
