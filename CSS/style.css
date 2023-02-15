@@ -18,7 +18,7 @@
     --base_blue: #104C80;
     --blue_black: #071a2b;
     --base_text: #393939;
-    --main_wrap_color: linear-gradient(180deg, #F2EDED 5%, #104C80 6%);
+    --main_wrap_color: linear-gradient(180deg, #F2EDED 4.5%, var(--blue_black) 5%);
     --contract_background: #E3E3E3;
     --benefit_background: #EBEBEB;
     --read_moro_width: 6.985vw;
@@ -308,8 +308,7 @@ Hero title
     position: absolute;
     top: 100vh;
     z-index: 200;
-    transition: .4s;
-    background: var(--main_wrap_color);
+    background: var(--blue_black);
 }
 
 /* HELLO KITAKAN */
@@ -451,27 +450,21 @@ Hero title
     display: none;
 }
 
-.img_wrap_lesson_desk {
-    position: relative;
-    width: 73.529vw;
-    height: 42.647vw;
-    overflow: hidden;
-}
-
 .lesson_desk {
-    position: absolute;
-    top: 0;
     width: auto;
-    height: calc(42.647vw * 1.5);
-    object-fit: cover;
+    height: 42.647vw;
 }
 
 .text_about .text_sub {
     font-size: var(--text_sub_size);
     line-height: 2.574vw;
-    letter-spacing: -.04em;
+    letter-spacing: -0.04em;
     color: var(--text_white);
-    margin: 5vw var(--body_side_margin) 0 38.235vw;
+    margin: 5vw var(--body_side_margin) 2.206vw 38.235vw;
+}
+
+.text_about .text_sub_10 {
+    margin-left: -0.2em;
 }
 
 .text_about .text_sub .orange_text {
@@ -508,10 +501,13 @@ Hero title
 }
 
 .flex_job {
-    width: 94.118vw;
+    width: 100%;
     display: flex;
-    margin: 0 0 0 auto;
-    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.flex_job .text_job {
+    margin-left: var(--body_side_margin);
 }
 
 .flex_job .text_main {
@@ -553,8 +549,9 @@ Hero title
 }
 
 .image_job .w_pc {
-    width: 36.765vw;
-    height: 47.426vw;
+    width: calc(36.765vw * 1.13);
+    height: calc(47.426vw * 1.13);
+    margin-right: var(--body_side_margin);
 }
 
 /* Section course */
