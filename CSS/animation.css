@@ -273,6 +273,11 @@ button:active .nav_btn_span {
     transition: all .4s 0s ease-out;
 }
 
+/* About text animation */
+.animation_target {
+    display:inline-block
+}
+
 /* Footer */
 /* Hello work link hover */
 .hello_work_link:hover {
