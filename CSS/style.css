@@ -1,6 +1,8 @@
 /* Preliminarise */
 @charset "utf-8";
 
+/* 1360*768 layout */
+
 /* Variable */
 :root {
     --body_side_margin: 5.882vw;
@@ -18,7 +20,7 @@
     --base_blue: #104C80;
     --blue_black: #071a2b;
     --base_text: #393939;
-    --main_wrap_color: linear-gradient(180deg, #F2EDED 4.5%, var(--blue_black) 5%);
+    --main_wrap_color: linear-gradient(180deg, #F2EDED 4.7%, var(--blue_black) 4.9%);
     --contract_background: #E3E3E3;
     --benefit_background: #EBEBEB;
     --read_moro_width: 6.985vw;
@@ -548,7 +550,7 @@ Hero title
     margin: 2.941vw 0 0 28.676vw;
 }
 
-.image_job .w_pc {
+.w_pc {
     width: calc(36.765vw * 1.13);
     height: calc(47.426vw * 1.13);
     margin-right: var(--body_side_margin);
@@ -616,7 +618,7 @@ Hero title
     display: flex;
 }
 
-.image_course .lesson_time{
+.lesson_time{
     width: 51.471vw;
     height: 36.035vw;
 }
@@ -733,7 +735,7 @@ Hero title
     color: var(--base_text);
 }
 
-.tertiary_photo_wrap {
+.study_wrap {
     width: 100vw;
     height: 35.294vw;
     display: flex;
@@ -746,7 +748,7 @@ Hero title
     height: 20.588vw;
 }
 
-.tertiary_photo_wrap + h2 {
+.study_wrap + h2 {
     line-height: 1em;
     margin: var(--middle_text_size) 0 0 var(--body_side_margin);
 }
@@ -1026,7 +1028,9 @@ iframe{
 
 .text_contract {
     letter-spacing: 0.088vw;
-    margin-left: calc(1.5 * var(--body_side_margin));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .text_contract .text {
@@ -1084,8 +1088,7 @@ iframe{
 .text_benefit {
     display: flex;
     flex-direction: column;
-    align-items: end;
-    margin-right: calc(1.5 * var(--body_side_margin));
+    align-items: center;
 }
 
 .text_benefit .text {
@@ -1109,6 +1112,13 @@ iframe{
 }
 
 /* Footer */
+footer {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    padding: 100vh;
+}
+
 .footer_wrap {
     height: 100vh;
     width: 100vw;
