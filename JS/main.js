@@ -32,11 +32,9 @@ navLists.forEach((navList) => {
 let setScrollPosition = 0;
 window.addEventListener('scroll' , () => {
     if(setScrollPosition < document.documentElement.scrollTop) {
-        console.log(`down`);
         navBtn.classList.add("fade_out");
         navBtn.classList.remove("fade_in");
     } else {
-        console.log(`up`);
         navBtn.classList.remove("fade_out");
         navBtn.classList.add("fade_in");
     }
@@ -179,45 +177,42 @@ const animationTargets = document.querySelectorAll(".animation_target");
 window.addEventListener('scroll', () => {
 const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
     if(titleAboutPosition <= window.innerHeight * 0.5) {
-        console.log(`white`);
         mainWrap.style.cssText = `
             background: var(--base_white);
-            transition: 0.4s;
+            transition: 0.5s;
         `
         titleAboutH1.style.cssText = `
             color: var(--base_text);
-            transition: 0.4s;
+            transition: 0.5s;
         `
         titleAboutH2.style.cssText = `
             color: var(--base_text);
-            transition: 0.4s;
+            transition: 0.5s;
         `
     } else if(titleAboutPosition <= window.innerHeight * 0.95) {
-        console.log(`blue`);
         mainWrap.style.cssText = `
             background: var(--base_blue);
-            transition: 0.4s;
+            transition: 0.5s;
         `
         titleAboutH1.style.cssText = `
             color: var(--text_white);
-            transition: 0.4s;
+            transition: 0.5s;
         `
         titleAboutH2.style.cssText = `
             color: var(--base_blue);
-            transition: 0.4s;
+            transition: 0.5s;
         `
     } else {
-        console.log(`black`);
         mainWrap.style.cssText = `
             background: var(--main_wrap_color);
         `
         titleAboutH1.style.cssText = `
             color: var(--text_white);
-            transition: 0.4s;
+            transition: 0.5s;
         `
         titleAboutH2.style.cssText = `
             color: var(--text_white);
-            transition: 0.4s;
+            transition: 0.5s;
         `
     };
 });
@@ -229,143 +224,160 @@ const tlaboutS = gsap.timeline();
 
 gsap.set( animationTargets,{
     opacity: 0,
+    x: -100,
 });
 
 let tlAboutMOnce = false;
 let tlAboutSOnce = false;
+const aTMEase = 'Power3.easeOut';
 window.addEventListener('scroll', () => {
     const aboutTextMain = document.querySelector(".text_about .text_main");
-    const aTM1 = document.querySelector(".text_main_1");
-    const aTM2 = document.querySelector(".text_main_2");
-    const aTM3 = document.querySelector(".text_main_3");
-    const aTM4 = document.querySelector(".text_main_4");
-    const aTM5 = document.querySelector(".text_main_5");
-    const aTM6 = document.querySelector(".text_main_6");
+    const aTM1 = document.querySelector(".text_about .text_main_1");
+    const aTM2 = document.querySelector(".text_about .text_main_2");
+    const aTM3 = document.querySelector(".text_about .text_main_3");
+    const aTM4 = document.querySelector(".text_about .text_main_4");
+    const aTM5 = document.querySelector(".text_about .text_main_5");
+    const aTM6 = document.querySelector(".text_about .text_main_6");
     //About text main position
     const aTMP = aboutTextMain.getBoundingClientRect().top;
     // about text time line animation diray
-    const aTMD = 1.2;
+    const aTAD = 1.2;
 
     if(aTMP <= window.innerHeight * 0.7 && tlAboutMOnce === false) {
-        console.log(`about text main gsap!!!!`);
         tlAboutMOnce = true;
+
         tlaboutM
-        .to(aTM1, aTMD,{
+        .to(aTM1, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0)
 
-        .to(aTM2, aTMD,{
+        .to(aTM2, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.2)
 
-        .to(aTM3, aTMD,{
+        .to(aTM3, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.4)
 
-        .to(aTM4, aTMD,{
+        .to(aTM4, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.6)
 
-        .to(aTM5, aTMD,{
+        .to(aTM5, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.8)
 
-        .to(aTM6, aTMD,{
+        .to(aTM6, aTAD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1)
         //change color orange
-        .fromTo(textMain1, {
+        .fromTo(aTM1, aTAD,{
             color: baseText,
-            ease: 'Power3.easeOut',
+            ease: aTMEase,
         },{
             color: accentColor,
-            ease: 'Power3.easeOut',
+            ease: aTMEase,
         }, 1.4);
     };
     
     // About sub text animation
     const aboutTextSub = document.querySelector(".text_about .text_sub");
-    const aTS1 = document.querySelector(".text_sub_1");
-    const aTS2 = document.querySelector(".text_sub_2");
-    const aTS3 = document.querySelector(".text_sub_3");
-    const aTS4 = document.querySelector(".text_sub_4");
-    const aTS5 = document.querySelector(".text_sub_5");
-    const aTS6 = document.querySelector(".text_sub_6");
-    const aTS7 = document.querySelector(".text_sub_7");
-    const aTS8 = document.querySelector(".text_sub_8");
-    const aTS9 = document.querySelector(".text_sub_9");
-    const aTS10 = document.querySelector(".text_sub_10");
+    const aTS1 = document.querySelector(".text_about .text_sub_1");
+    const aTS2 = document.querySelector(".text_about .text_sub_2");
+    const aTS3 = document.querySelector(".text_about .text_sub_3");
+    const aTS4 = document.querySelector(".text_about .text_sub_4");
+    const aTS5 = document.querySelector(".text_about .text_sub_5");
+    const aTS6 = document.querySelector(".text_about .text_sub_6");
+    const aTS7 = document.querySelector(".text_about .text_sub_7");
+    const aTS8 = document.querySelector(".text_about .text_sub_8");
+    const aTS9 = document.querySelector(".text_about .text_sub_9");
+    const aTS10 = document.querySelector(".text_about .text_sub_10");
     //About text sub position
     const aTSP = aboutTextSub.getBoundingClientRect().top;
     //About text sub animation diray
     const aTSD = 1.2;
 
     if(aTSP <= window.innerHeight * 0.6 && tlAboutSOnce === false) {
-        console.log(`about text sub gsap!!!!`);
         tlAboutSOnce = true;
         tlaboutS
         .to(aTS1, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0)
     
         .to(aTS2, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.2)
     
         .to(aTS3, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.4)
     
         .to(aTS4, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.6)
     
         .to(aTS5, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 0.8)
     
         .to(aTS6, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1)
 
         .to(aTS7, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1.2)
 
         .to(aTS8, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1.4)
 
         .to(aTS9, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1.6)
 
         .to(aTS10, aTSD,{
             opacity: 1,
-            ease: 'Power3.easeOut',
+            x: 0,
+            ease: aTMEase,
         }, 1.8)
         //change color orange
-        .fromTo(textSub9, {
+        .fromTo(aTS9, {
             color: textWhite,
-            ease: 'Power3.easeOut',
+            ease: aTMEase,
         },{
             color: accentColor,
-            ease: 'Power3.easeOut',
+            ease: aTMEase,
         }, 2.2);
     };
 });
@@ -383,7 +395,6 @@ gsap.set(lessonDesk ,{
 window.addEventListener('scroll', () => {
     const aBBBPosition = aBBB.getBoundingClientRect().top;
     if(aBBBPosition <= window.innerHeight * 0.8 && aBBBOnce === false) {
-        console.log(`about background animation!!!`);
         aBBBOnce = true;
         gsap.to(lessonDesk, 0.8,{
            x: 0,
@@ -404,75 +415,314 @@ const sectionJob = document.querySelector("#job");
 const titleJob = document.querySelector(".title_job");
 const titleJobH1 = document.querySelector(".title_job h1");
 const titleJobH2 = document.querySelector(".title_job h2");
-const textJb = document.querySelector(".title_job h2");
-const textJob = document.querySelector(".title_job h2");
+const textJob = document.querySelector(".text_job");
+const titleWrap = document.querySelector(".title_wrap");
+const flexJob = document.querySelector(".flex_job");
+const jobTextMain = document.querySelector(".flex_job .text_main");
+const jobPhoto = document.querySelector(".w_pc");
+const jTM1 = document.querySelector(".text_job .text_main_1");
+const jTM2 = document.querySelector(".text_job .text_main_2");
+const jTM3 = document.querySelector(".text_job .text_main_3");
+const jTM4 = document.querySelector(".text_job .text_main_4");
+const jTM5 = document.querySelector(".text_job .text_main_5");
+const jTS1 = document.querySelector(".text_job .text_sub_1");
+const jTS2 = document.querySelector(".text_job .text_sub_2");
+const jTS3 = document.querySelector(".text_job .text_sub_3");
+const jTS4 = document.querySelector(".text_job .text_sub_4");
+const jTS5 = document.querySelector(".text_job .text_sub_5");
+const jTS6 = document.querySelector(".text_job .text_sub_6");
 
+
+gsap.set(jobPhoto, {
+    opacity: 0,
+    x: -2000,
+});
 // Job title animation
 window.addEventListener('scroll', () => {
     const titleJobPosition = titleJobH1.getBoundingClientRect().top;
-        if(titleJobPosition <= window.innerHeight * 0.5) {
-            console.log(`job white`);
-            sectionJob.style.cssText = `
-                background: var(--base_white);
-                transition: 0.4s;
+    if(titleJobPosition <= window.innerHeight * 0.45) {
+        sectionJob.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
             `
             titleJobH1.style.cssText = `
-                color: var(--base_text);
-                transition: 0.4s;
+            color: var(--base_text);
+            transition: 0.5s;
             `
             titleJobH2.style.cssText = `
-                color: var(--base_text);
-                transition: 0.4s;
+            color: var(--base_text);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 0;
+            transition: 0.5s;
             `
         } else {
-            console.log(`job blue`);
             sectionJob.style.cssText = `
-                background: var(--base_blue);
-                transition: 0.4s;
+            background: var(--base_blue);
+            transition: 0.5s;
             `
             titleJobH1.style.cssText = `
-                color: var(--text_white);
-                transition: 0.4s;
+            color: var(--text_white);
+            transition: 0.5s;
             `
             titleJobH2.style.cssText = `
-                color: var(--base_blue);
-                transition: 0.4s;
+            color: var(--base_blue);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 1;
+            background: var(--base_blue);
+            transition: 0.5s;
             `
         };
-
-// Job title animation
-
+        
+    // job flex and text animation
+    //text job animation dilay
+    const jTAD = 1.2;
+    let jFAOnce = false;
     const textJobPosition = textJob.getBoundingClientRect().top;
-        if(titleJobPosition <= window.innerHeight * 0.5) {
-            console.log(`job white`);
-            sectionJob.style.cssText = `
-                background: var(--base_white);
-                transition: 0.4s;
-            `
-            titleJobH1.style.cssText = `
-                color: var(--base_text);
-                transition: 0.4s;
-            `
-            titleJobH2.style.cssText = `
-                color: var(--base_text);
-                transition: 0.4s;
-            `
-        } else {
-            console.log(`job blue`);
-            sectionJob.style.cssText = `
-                background: var(--base_blue);
-                transition: 0.4s;
-            `
-            titleJobH1.style.cssText = `
-                color: var(--text_white);
-                transition: 0.4s;
-            `
-            titleJobH2.style.cssText = `
-                color: var(--base_blue);
-                transition: 0.4s;
-            `
-        };
-    });
+    if(textJobPosition <= window.innerHeight * 0.3 && jFAOnce === false) {
+        jFAOnce = true;
+        
+        const tl = gsap.timeline();
+        tl
+        .to(jobPhoto,0.5,{
+            opacity: 1,
+            x: 0,
+            ease: aTMEase,
+        })        
+            
+        .to(jTM1,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.2)
+
+        .to(jTM2,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.4)
+
+        .to(jTM3,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.6)
+
+        .to(jTM4,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.8)
+
+        .to(jTM5,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1)
+
+        .to(jTS1,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.2)
+
+        .to(jTS2,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.4)
+
+        .to(jTS3,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.6)
+
+        .to(jTS4,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.8)
+
+        .to(jTS5,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2)
+
+        .to(jTS6,jTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2.2)
+        //change color orange
+        .fromTo(jTM5,jTAD,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.6)
+
+        .fromTo(jTS6,jTAD,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.6);   
+    };
+});
+
+// Section course //
+const sectionCourse = document.querySelector("#course");
+const titleCourse = document.querySelector(".title_course");
+const titleCourseH1 = document.querySelector(".title_course h1");
+const titleCourseH2 = document.querySelector(".title_course h2");
+const textCourse = document.querySelector(".text_course");
+const courseTextMain = document.querySelector("#course .text_main");
+const coursePhoto = document.querySelector(".lesson_time");
+const cTM1 = document.querySelector(".text_course .text_main_1");
+const cTM2 = document.querySelector(".text_course .text_main_2");
+const cTM3 = document.querySelector(".text_course .text_main_3");
+const cTS1 = document.querySelector(".text_course .text_sub_1");
+const cTS2 = document.querySelector(".text_course .text_sub_2");
+const cTS3 = document.querySelector(".text_course .text_sub_3");
+const cTS4 = document.querySelector(".text_course .text_sub_4");
+const cTS5 = document.querySelector(".text_course .text_sub_5");
+const cTS6 = document.querySelector(".text_course .text_sub_6");
+const cTS7 = document.querySelector(".text_course .text_sub_7");
+
+let cAOnce = false;
+
+// course title animation
+window.addEventListener('scroll', () => {
+    const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
+    if(titleCoursePosition <= window.innerHeight * 0.45) {
+        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
+        sectionCourse.style.cssText = `
+        background: var(--base_blue);
+        transition: 0.5s;
+        `
+        titleCourseH1.style.cssText = `
+        color: var(--text_white);
+        transition: 0.5s;
+        `
+        titleCourseH2.style.cssText = `
+        color: var(--text_white);
+        transition: 0.5s;
+        `
+        titleWrap.style.cssText = `
+        opacity: 0;
+        transition: 0.5s;
+        `
+    } else {
+        console.log(`before!!!!!!!!!!!!!!!!!!!!!!`);
+        sectionCourse.style.cssText = `
+        background: var(--base_white);
+        transition: 0.5s;
+        `
+        titleCourseH1.style.cssText = `
+        color: var(--base_text);
+        transition: 0.5s;
+        `
+        titleCourseH2.style.cssText = `
+        color: var(--base_white);
+        transition: 0.5s;
+        `
+        titleWrap.style.cssText = `
+        opacity: 1;
+        background: var(--base_blue);
+        transition: 0.5s;
+        `
+    };
+    
+    // Course and text animation
+    //text job animation dilay
+    const cTAD = 1.2;
+    const textCoursePosition = textJob.getBoundingClientRect().top;
+    if(textCoursePosition <= window.innerHeight * 0.3 && cAOnce === false) {
+        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
+        cAOnce = true;
+        
+        const tl = gsap.timeline();
+        tl
+        .to(coursePhoto,{
+            opacity: 1,
+            x: 0,
+            ease: aTMEase,
+        },10)        
+            
+        .to(cTM1,{
+            opacity:1,
+            ease: aTMEase,
+        },0.4)
+
+        .to(cTM2,{
+            opacity:1,
+            ease: aTMEase,
+        },0.6)
+
+        .to(cTM3,{
+            opacity:1,
+            ease: aTMEase,
+        },0.8)
+
+        .to(cTS1,{
+            opacity:1,
+            ease: aTMEase,
+        },1)
+
+        .to(cTS2,{
+            opacity:1,
+            ease: aTMEase,
+        },1.2)
+
+        .to(cTS3,{
+            opacity:1,
+            ease: aTMEase,
+        },1.4)
+
+        .to(cTS4,{
+            opacity:1,
+            ease: aTMEase,
+        },1.6)
+
+        .to(cTS5,{
+            opacity:1,
+            ease: aTMEase,
+        },1.8)
+
+        .to(cTS6,{
+            opacity:1,
+            ease: aTMEase,
+        },2)
+
+        .to(cTS7,{
+            opacity:1,
+            ease: aTMEase,
+        },2.2)
+        //change color orange
+        .fromTo(jTM5,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.8)
+
+        .fromTo(jTS6,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.8);   
+    };
+});
     
 // Gsap ScrollTrgger//
 // Hello kitakan scroll 
