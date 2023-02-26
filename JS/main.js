@@ -371,24 +371,17 @@ window.addEventListener('scroll', () => {
             x: 0,
             ease: aTMEase,
         }, 1.8)
-        //change color orange
-        .fromTo(aTS9, {
-            color: textWhite,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        }, 2.2);
     };
 });
 
 //About_background_blue_box animation
 const aBBB = document.querySelector(".about_background_blue_box");
-const lessonDesk = document.querySelector(".lesson_desk");
+const aboutPhoto = document.querySelector(".lesson_desk");
 let aBBBOnce = false;
 
-gsap.set(lessonDesk ,{
-    x: -1000,
+gsap.set(aboutPhoto,{
+    opacity: 0,
+    x: -300,
     ease: 'Power4.easeOut',
 });
 
@@ -396,9 +389,10 @@ window.addEventListener('scroll', () => {
     const aBBBPosition = aBBB.getBoundingClientRect().top;
     if(aBBBPosition <= window.innerHeight * 0.8 && aBBBOnce === false) {
         aBBBOnce = true;
-        gsap.to(lessonDesk, 0.8,{
-           x: 0,
-           ease: 'Power4.easeOut',  
+        gsap.to(aboutPhoto, 1,{
+            opacity: 1,
+            x: 0,
+            ease: 'Power4.easeOut',  
         }),
         aBBB.style.cssText = `
             width: 100vw;
@@ -420,6 +414,7 @@ const titleWrap = document.querySelector(".title_wrap");
 const flexJob = document.querySelector(".flex_job");
 const jobTextMain = document.querySelector(".flex_job .text_main");
 const jobPhoto = document.querySelector(".w_pc");
+const jobLink = document.querySelector(".job_link");
 const jTM1 = document.querySelector(".text_job .text_main_1");
 const jTM2 = document.querySelector(".text_job .text_main_2");
 const jTM3 = document.querySelector(".text_job .text_main_3");
@@ -432,10 +427,10 @@ const jTS4 = document.querySelector(".text_job .text_sub_4");
 const jTS5 = document.querySelector(".text_job .text_sub_5");
 const jTS6 = document.querySelector(".text_job .text_sub_6");
 
-
+const tlJob = gsap.timeline();
 gsap.set(jobPhoto, {
     opacity: 0,
-    x: -2000,
+    x: -500,
 });
 // Job title animation
 window.addEventListener('scroll', () => {
@@ -485,8 +480,7 @@ window.addEventListener('scroll', () => {
     if(textJobPosition <= window.innerHeight * 0.3 && jFAOnce === false) {
         jFAOnce = true;
         
-        const tl = gsap.timeline();
-        tl
+        tlJob
         .to(jobPhoto,0.5,{
             opacity: 1,
             x: 0,
@@ -559,21 +553,23 @@ window.addEventListener('scroll', () => {
             ease: aTMEase,
         },2.2)
         //change color orange
-        .fromTo(jTM5,jTAD,{
+        .fromTo(jTM5,{
             color: baseText,
             ease: aTMEase,
         },{
             color: accentColor,
             ease: aTMEase,
-        },2.6)
+        },1.4)
 
-        .fromTo(jTS6,jTAD,{
-            color: baseText,
+        .fromTo(jobLink,jTAD,{
+            opacity: 0,
+            y: 10,
             ease: aTMEase,
         },{
-            color: accentColor,
+            opacity: 1,
+            y: 0,
             ease: aTMEase,
-        },2.6);   
+        },2.4)
     };
 });
 
@@ -582,27 +578,34 @@ const sectionCourse = document.querySelector("#course");
 const titleCourse = document.querySelector(".title_course");
 const titleCourseH1 = document.querySelector(".title_course h1");
 const titleCourseH2 = document.querySelector(".title_course h2");
-const textCourse = document.querySelector(".text_course");
 const courseTextMain = document.querySelector("#course .text_main");
 const coursePhoto = document.querySelector(".lesson_time");
-const cTM1 = document.querySelector(".text_course .text_main_1");
-const cTM2 = document.querySelector(".text_course .text_main_2");
-const cTM3 = document.querySelector(".text_course .text_main_3");
-const cTS1 = document.querySelector(".text_course .text_sub_1");
-const cTS2 = document.querySelector(".text_course .text_sub_2");
-const cTS3 = document.querySelector(".text_course .text_sub_3");
-const cTS4 = document.querySelector(".text_course .text_sub_4");
-const cTS5 = document.querySelector(".text_course .text_sub_5");
-const cTS6 = document.querySelector(".text_course .text_sub_6");
-const cTS7 = document.querySelector(".text_course .text_sub_7");
+const courseLink = document.querySelector(".course_link");
+const cTM1 = document.querySelector("#course .text_main_1");
+const cTM2 = document.querySelector("#course .text_main_2");
+const cTM3 = document.querySelector("#course .text_main_3");
+const cTS1 = document.querySelector("#course .text_sub_1");
+const cTS2 = document.querySelector("#course .text_sub_2");
+const cTS3 = document.querySelector("#course .text_sub_3");
+const cTS4 = document.querySelector("#course .text_sub_4");
+const cTS5 = document.querySelector("#course .text_sub_5");
+const cTS6 = document.querySelector("#course .text_sub_6");
+const cTS7 = document.querySelector("#course .text_sub_7");
 
 let cAOnce = false;
+
+const tl = gsap.timeline();
+
+gsap.set(coursePhoto,{
+    opacity: 0,
+    x: 500,
+    ease: aTMEase,
+});
 
 // course title animation
 window.addEventListener('scroll', () => {
     const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
     if(titleCoursePosition <= window.innerHeight * 0.45) {
-        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
         sectionCourse.style.cssText = `
         background: var(--base_blue);
         transition: 0.5s;
@@ -620,7 +623,6 @@ window.addEventListener('scroll', () => {
         transition: 0.5s;
         `
     } else {
-        console.log(`before!!!!!!!!!!!!!!!!!!!!!!`);
         sectionCourse.style.cssText = `
         background: var(--base_white);
         transition: 0.5s;
@@ -641,89 +643,108 @@ window.addEventListener('scroll', () => {
     };
     
     // Course and text animation
-    //text job animation dilay
+    //text course animation dilay
     const cTAD = 1.2;
-    const textCoursePosition = textJob.getBoundingClientRect().top;
+    const textCoursePosition = courseTextMain.getBoundingClientRect().top;
     if(textCoursePosition <= window.innerHeight * 0.3 && cAOnce === false) {
         console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
         cAOnce = true;
         
-        const tl = gsap.timeline();
         tl
-        .to(coursePhoto,{
+        .to(coursePhoto, cTAD,{
             opacity: 1,
             x: 0,
             ease: aTMEase,
-        },10)        
+        },)        
             
-        .to(cTM1,{
+        .to(cTM1, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },0.4)
 
-        .to(cTM2,{
+        .to(cTM2, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },0.6)
 
-        .to(cTM3,{
+        .to(cTM3, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },0.8)
 
-        .to(cTS1,{
+        .to(cTS1, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },1)
 
-        .to(cTS2,{
+        .to(cTS2, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },1.2)
 
-        .to(cTS3,{
+        .to(cTS3, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },1.4)
 
-        .to(cTS4,{
+        .to(cTS4, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },1.6)
 
-        .to(cTS5,{
+        .to(cTS5, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },1.8)
 
-        .to(cTS6,{
+        .to(cTS6, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },2)
 
-        .to(cTS7,{
+        .to(cTS7, cTAD,{
             opacity:1,
+            x: 0,
             ease: aTMEase,
         },2.2)
         //change color orange
-        .fromTo(jTM5,{
-            color: baseText,
+        .fromTo(cTM3,{
+            color: textWhite,
             ease: aTMEase,
         },{
             color: accentColor,
             ease: aTMEase,
-        },2.8)
+        },1.2) 
 
-        .fromTo(jTS6,{
-            color: baseText,
+        .fromTo(courseLink,{
+            opacity: 0,
+            y: 10,
             ease: aTMEase,
         },{
-            color: accentColor,
+            opacity: 1,
+            y: 0,
             ease: aTMEase,
-        },2.8);   
+        },2.4) 
     };
 });
     
+
+
+
+
+
+
+
+
 // Gsap ScrollTrgger//
 // Hello kitakan scroll 
 const sectionAbout = document.querySelector("#about");
