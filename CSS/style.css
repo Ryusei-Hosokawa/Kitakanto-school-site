@@ -55,6 +55,7 @@ body {
 
 /* Readmoro link layout */
 .readmore_link {
+    opacity: 0;
     position: relative;
     display: block;
     width: var(--read_moro_width);
