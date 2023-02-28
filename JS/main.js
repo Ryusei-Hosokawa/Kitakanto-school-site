@@ -186,6 +186,7 @@ const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
             transition: 0.5s;
         `
         titleAboutH2.style.cssText = `
+            opacity: 0.8;
             color: var(--base_text);
             transition: 0.5s;
         `
@@ -592,6 +593,7 @@ const cTS5 = document.querySelector("#course .text_sub_5");
 const cTS6 = document.querySelector("#course .text_sub_6");
 const cTS7 = document.querySelector("#course .text_sub_7");
 
+// One-time animation only
 let cAOnce = false;
 
 const tl = gsap.timeline();
@@ -650,69 +652,69 @@ window.addEventListener('scroll', () => {
         console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
         cAOnce = true;
         
-        tl
-        .to(coursePhoto, cTAD,{
-            opacity: 1,
-            x: 0,
-            ease: aTMEase,
-        },)        
-            
+        tl  
         .to(cTM1, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },0.4)
+        })
 
         .to(cTM2, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },0.6)
+        },0.2)
 
         .to(cTM3, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },0.8)
+        },0.4)
 
         .to(cTS1, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },1)
+        },0.6)
 
         .to(cTS2, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },1.2)
+        },0.8)
 
         .to(cTS3, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },1.4)
+        },1)
 
         .to(cTS4, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },1.6)
+        },1.2)
 
         .to(cTS5, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },1.8)
+        },1.4)
 
         .to(cTS6, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
-        },2)
+        },1.6)
 
         .to(cTS7, cTAD,{
             opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.8)
+
+        .to(coursePhoto, cTAD,{
+            opacity: 1,
             x: 0,
             ease: aTMEase,
         },2.2)
@@ -723,7 +725,7 @@ window.addEventListener('scroll', () => {
         },{
             color: accentColor,
             ease: aTMEase,
-        },1.2) 
+        },0.6) 
 
         .fromTo(courseLink,{
             opacity: 0,
@@ -736,54 +738,278 @@ window.addEventListener('scroll', () => {
         },2.4) 
     };
 });
+
+
+// Section secondary //
+const sectionSecondary = document.querySelector(".secondary");
+const secondaryB = document.querySelector(".secondary_blue");
+const secondaryW = document.querySelector(".secondary_white");
+const secondaryTextB = document.querySelector(".secondary_blue h2");
+const secondaryTextW = document.querySelector(".secondary_white h2");
+const secondaryPhotoB = document.querySelector(".corridor");
+const secondaryPhotoW = document.querySelector(".book");
+const TB1 = document.querySelector(".text_divisio_ji_7");
+const TB2 = document.querySelector(".text_divisio_shin_8");
+const TB3 = document.querySelector(".text_divisio_su_10");
+const TB4 = document.querySelector(".text_divisio_ki_11");
+const TB5 = document.querySelector(".text_divisio_ru_12");
+const TW1 = document.querySelector(".text_divisio_tano_1");
+const TW2 = document.querySelector(".text_divisio_shi_2");
+const TW3 = document.querySelector(".text_divisio_ku_3");
+const TW4 = document.querySelector(".text_divisio_shi_6");
+const TW5 = document.querySelector(".text_divisio_x_7");
+const TW6 = document.querySelector(".text_divisio_ka_8");
+const TW7 = document.querySelector(".text_divisio_ri_9");
+
+// One-time animation only
+let sPBAOnce = false;
+let sPWAOnce = false;
+
+// secondary title animation
+window.addEventListener('scroll', () => {
+    const secondaryTextBPosition = secondaryTextB.getBoundingClientRect().top;
+    if(secondaryTextBPosition <= window.innerHeight * 0.6) {
+        secondaryB.style.cssText = `
+        background: var(--base_white);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryW.style.cssText = `
+        background: var(--base_blue);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryPhotoB.style.cssText = `
+        transfrom: translateX(0);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryPhotoW.style.cssText = `
+        transfrom: translateX(0);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryTextB.style.cssText = `
+        color: var(--base_text);
+        transfrom: translateX(0);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryTextW.style.cssText = `
+        color: var(--text_white);
+        transfrom: translateX(0);
+        ease: in-out;
+        transition: 0.5s;
+        `
+    } else {
+        secondaryB.style.cssText = `
+        background: var(--base_blue);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryW.style.cssText = `
+        background: var(--base_white);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryPhotoB.style.cssText = `
+        transfrom: translateX(45.588vw);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryPhotoW.style.cssText = `
+        transfrom: translateX(0);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryTextB.style.cssText = `
+        color: var(--text_white);
+        transfrom: translateX(45.588vw);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryTextW.style.cssText = `
+        color: var(--base_text);
+        transfrom: translateX(-45.588vw);
+        ease: in-out;
+        transition: 0.5s;
+        `    
+    };
     
-
-
-
-
-
-
-
-
-// Gsap ScrollTrgger//
-// Hello kitakan scroll 
-const sectionAbout = document.querySelector("#about");
-
-gsap.to(helloKitakanWrapH2, {
-    scale: 100,
-    rotationZ:100, 
-    ease: 'sine.inOut',
-    scrollTrigger: {
-        trigger: helloKitakanWrapH2,
-        start: '200% 70%',
-        end: '200% top',
-        scrub: 1.5,
-        markers: false,
-    }
+    // Secondary text animation
+    const secondaryPhotoBPosition = secondaryPhotoB.getBoundingClientRect().top;
+    const secondaryPhotoWPosition = secondaryPhotoW.getBoundingClientRect().top;
+    if(secondaryPhotoBPosition <= window.innerHeight * 0.3 && sPBAOnce === false) {
+        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
+        sPBAOnce = true;
+        secondaryPhotoB.classList.add("corridor_active");
+    };
+    if(secondaryPhotoWPosition <= window.innerHeight * 0.3 && sPWAOnce === false) {
+        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
+        sPWAOnce = true;
+        secondaryPhotoW.classList.add("book_active");
+    };
 });
 
-// About animation //
-// Title animetion
-const titleAbout = document.querySelector(".title_about");
 
-gsap.set(titleAbout, {
-    scale: 0,
-    opacity: 0,
-});
 
-gsap.fromTo(titleAbout, {
-    scale: 0,
-    opacity: 0,
-    ease: 'sine.inOut',
-    },{
-    scale: 1,
-    opacity: 1,
-    ease: 'sine.inOut',
-    scrollTrigger: {
-        trigger: sectionAbout,
-        start: 'top bottom',
-        end: 'top 53%',
-        scrub: false,
-        markers: false,
-    }
+
+
+
+
+
+
+
+
+
+// Section apply //
+const sectionApply = document.querySelector("#apply");
+const applyTextH1 = document.querySelector(".title_apply h1");
+const applyTextH2 = document.querySelector(".title_apply h2");
+const apTM1 = document.querySelector(".text_apply text_main_1");
+const apTM2 = document.querySelector(".text_apply text_main_2");
+const apTM3 = document.querySelector(".text_apply text_main_3");
+const apTS1 = document.querySelector(".text_apply .text_sub_1");
+const apTS2 = document.querySelector(".text_apply .text_sub_2");
+const apTS3 = document.querySelector(".text_apply .text_sub_3");
+const apTS4 = document.querySelector(".text_apply .text_sub_4");
+const apTS5 = document.querySelector(".text_apply .text_sub_5");
+const apTS6 = document.querySelector(".text_apply .text_sub_6");
+const apTS7 = document.querySelector(".text_apply .text_sub_7");
+const apTS8 = document.querySelector(".text_apply .text_sub_8");
+const apTS9 = document.querySelector(".text_apply .text_sub_9");
+const apTS10 = document.querySelector(".text_apply .text_sub_10");
+const apTS11 = document.querySelector(".text_apply .text_sub_11");
+const apTS12 = document.querySelector(".text_apply .text_sub_12");
+const apTS13 = document.querySelector(".text_apply .text_sub_13");
+
+// One-time animation only 
+let apTMAOnce = false;
+let apTSAOnce = false;
+
+// secondary title animation
+window.addEventListener('scroll', () => {
+    const applyTextH1Position = applyTextH1.getBoundingClientRect().top;
+    if(applyTextH1Position <= window.innerHeight * 0.5) {
+        sectionApply.style.cssText = `
+        background: var(--base_white);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        applyTextH1.style.cssText = `
+        color: var(--base_text);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        applyTextH2.style.cssText = `
+        color: var(--base_text);
+        ease: in-out;
+        transition: 0.5s;
+        `
+    } else {
+        sectionApply.style.cssText = `
+        background: var(--base_blue);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        applyTextH1.style.cssText = `
+        color: var(--base_white);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        applyTextH2.style.cssText = `
+        color: var(--base_blue);
+        ease: in-out;
+        transition: 0.5s;
+        `
+    };
+    
+    const applyTextPosition = applyText.getBoundingClientRect().top;
+    if(applyTextPosition <= window.innerHeight * 0.5) {
+
+        tl  
+        .to(cTM1, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        })
+
+        .to(cTM2, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.2)
+
+        .to(cTM3, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.4)
+
+        .to(cTS1, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.6)
+
+        .to(cTS2, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.8)
+
+        .to(cTS3, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1)
+
+        .to(cTS4, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.2)
+
+        .to(cTS5, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.4)
+
+        .to(cTS6, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.6)
+
+        .to(cTS7, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.8)
+
+        .to(coursePhoto, cTAD,{
+            opacity: 1,
+            x: 0,
+            ease: aTMEase,
+        },2.2)
+        //change color orange
+        .fromTo(cTM3,{
+            color: textWhite,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },0.6) 
+
+        .fromTo(courseLink,{
+            opacity: 0,
+            y: 10,
+            ease: aTMEase,
+        },{
+            opacity: 1,
+            y: 0,
+            ease: aTMEase,
+        },2.4) 
+    };
 });
