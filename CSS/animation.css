@@ -300,3 +300,39 @@ button:active .nav_btn_span {
     color: var(--link_text_hover_color);
     transition: all .4s 0s ease-out;
 }
+
+
+
+
+
+
+
+
+
+/* Scroll animation */
+/* Secondary */
+.corridor {
+    opacity: 0;
+    transform: translateX(-7.353vw);
+    transition: all .4s 0s ease-out; 
+}
+
+.corridor_active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .4s 0s ease-out; 
+}
+
+.book {
+    opacity: 0;
+    transform: translateX(7.353vw);
+    transition: all .4s 0s ease-out; 
+}
+
+.book_active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .4s 0s ease-out; 
+}
+
+/* Apply */
