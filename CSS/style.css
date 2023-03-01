@@ -423,7 +423,7 @@ Hero title
     font-size: var(--section_title_size_j);
     line-height: var(--section_title_size_j);
     color: var(--base_blue);
-    opacity: 0.8;
+    opacity: 0;
     letter-spacing: -0.04em;
 }
 
@@ -563,6 +563,17 @@ Hero title
     position: relative;
 }
 
+#course::before {
+    content: "";
+    width: 90vw;
+    height: 0.4px;
+    position: absolute;
+    top: 132.353vw;
+    left: 5.147vw;
+    z-index: 0;
+    background: var(--base_white);
+}
+
 #course::after {
     content: "";
     width: 100vw;
@@ -658,7 +669,6 @@ Hero title
     font-size: var(--middle_text_size);
     line-height: var(--middle_text_size);
     letter-spacing: -.13em;
-    color: var(--text_white);
     margin: 1em 0 0 var(--body_side_margin);
 }
 
@@ -666,7 +676,6 @@ Hero title
     font-size: var(--middle_text_size);
     line-height: var(--middle_text_size);
     letter-spacing: -.04em;
-    color: var(--base_text);
     margin: 0 var(--body_side_margin) 1em auto;
     display: table;
 }
@@ -734,6 +743,7 @@ Hero title
     font-size: 4.779vw;
     letter-spacing: -.15em;
     color: var(--base_text);
+    overflow: hidden;
 }
 
 .study_wrap {
@@ -759,6 +769,7 @@ Hero title
     text-align: center;
     margin: var(--section_title_margin);
     padding-top: 25.735vw;
+    color: var(--base_text);
 }
 
 #acceptance .title_acceptance h1 {
@@ -767,14 +778,14 @@ Hero title
     font-style: normal;
     font-size: var(--section_title_size);
     line-height: var(--section_title_size);
-    color: var(--base_text);
+    transition: all .4s 0s ease-out;
 }
 
 #acceptance .title_acceptance h2 {
     font-size: var(--section_title_size_j);
     line-height: var(--section_title_size_j);
-    color: var(--base_text);
     opacity: .9;
+    transition: all .4s 0s ease-out;
 }
 
 .text_acceptance .text_main {
@@ -782,10 +793,11 @@ Hero title
     text-align: center;
     letter-spacing: -0.699vw;
     color: var(--base_text);
+    transition: all .4s 0s ease-out;
 }
 
 .acceptance_corse {
-    height: 64.559vw;
+    height: 45.559vw;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
@@ -793,6 +805,7 @@ Hero title
 
 .group_design {
     position: relative;
+    z-index: 10;
 }
 
 .group_design .web_design {
@@ -826,6 +839,7 @@ Hero title
 
 .group_base {
     position: relative;
+    z-index: 10;
 }
 
 .group_base .pc_base  {
@@ -859,6 +873,8 @@ Hero title
 
 .group_programming {
     position: relative;
+    z-index: 10;
+
 }
 
 .group_programming .it_programming  {
@@ -896,8 +912,7 @@ Hero title
     height: 68.75vw;
 }
 
-#address::after {
-    content: "";
+.address_background {
     width: 100vw;
     height: 111.765vw;
     position: absolute;
@@ -1113,13 +1128,6 @@ iframe{
 }
 
 /* Footer */
-footer {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    padding: 100vh;
-}
-
 .footer_wrap {
     height: 100vh;
     width: 100vw;
