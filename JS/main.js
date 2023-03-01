@@ -596,7 +596,7 @@ const cTS7 = document.querySelector("#course .text_sub_7");
 // One-time animation only
 let cAOnce = false;
 
-const tl = gsap.timeline();
+const courseTl = gsap.timeline();
 
 gsap.set(coursePhoto,{
     opacity: 0,
@@ -652,7 +652,7 @@ window.addEventListener('scroll', () => {
         console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
         cAOnce = true;
         
-        tl  
+        courseTl  
         .to(cTM1, cTAD,{
             opacity:1,
             x: 0,
@@ -748,27 +748,28 @@ const secondaryTextB = document.querySelector(".secondary_blue h2");
 const secondaryTextW = document.querySelector(".secondary_white h2");
 const secondaryPhotoB = document.querySelector(".corridor");
 const secondaryPhotoW = document.querySelector(".book");
-const TB1 = document.querySelector(".text_divisio_ji_7");
-const TB2 = document.querySelector(".text_divisio_shin_8");
-const TB3 = document.querySelector(".text_divisio_su_10");
-const TB4 = document.querySelector(".text_divisio_ki_11");
-const TB5 = document.querySelector(".text_divisio_ru_12");
-const TW1 = document.querySelector(".text_divisio_tano_1");
-const TW2 = document.querySelector(".text_divisio_shi_2");
-const TW3 = document.querySelector(".text_divisio_ku_3");
-const TW4 = document.querySelector(".text_divisio_shi_6");
-const TW5 = document.querySelector(".text_divisio_x_7");
-const TW6 = document.querySelector(".text_divisio_ka_8");
-const TW7 = document.querySelector(".text_divisio_ri_9");
+const TB1 = document.querySelector(".secondary_blue h2 .text_division_ji_7");
+const TB2 = document.querySelector(".secondary_blue h2 .text_division_shin_8");
+const TB3 = document.querySelector(".secondary_blue h2 .text_division_su_10");
+const TB4 = document.querySelector(".secondary_blue h2 .text_division_ki_11");
+const TB5 = document.querySelector(".secondary_blue h2 .text_division_ru_12");
+const TW1 = document.querySelector(".secondary_white h2 .text_division_tano_1");
+const TW2 = document.querySelector(".secondary_white h2 .text_division_shi_2");
+const TW3 = document.querySelector(".secondary_white h2 .text_division_ku_3");
+const TW4 = document.querySelector(".secondary_white h2 .text_division_shi_6");
+const TW5 = document.querySelector(".secondary_white h2 .text_division_x_7");
+const TW6 = document.querySelector(".secondary_white h2 .text_division_ka_8");
+const TW7 = document.querySelector(".secondary_white h2 .text_division_ri_9");
 
 // One-time animation only
 let sPBAOnce = false;
 let sPWAOnce = false;
+let sTWAOnce = false;
 
 // secondary title animation
 window.addEventListener('scroll', () => {
     const secondaryTextBPosition = secondaryTextB.getBoundingClientRect().top;
-    if(secondaryTextBPosition <= window.innerHeight * 0.6) {
+    if(secondaryTextBPosition <= window.innerHeight * 0.65) {
         secondaryB.style.cssText = `
         background: var(--base_white);
         ease: in-out;
@@ -839,15 +840,73 @@ window.addEventListener('scroll', () => {
     // Secondary text animation
     const secondaryPhotoBPosition = secondaryPhotoB.getBoundingClientRect().top;
     const secondaryPhotoWPosition = secondaryPhotoW.getBoundingClientRect().top;
+    const secondaryTextWPosition = secondaryPhotoW.getBoundingClientRect().top;
     if(secondaryPhotoBPosition <= window.innerHeight * 0.3 && sPBAOnce === false) {
-        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
         sPBAOnce = true;
         secondaryPhotoB.classList.add("corridor_active");
     };
-    if(secondaryPhotoWPosition <= window.innerHeight * 0.3 && sPWAOnce === false) {
-        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
+    if(secondaryPhotoWPosition <= window.innerHeight * 0.7 && sPWAOnce === false) {
         sPWAOnce = true;
         secondaryPhotoW.classList.add("book_active");
+    };
+    if(secondaryTextWPosition <= window.innerHeight * 0.7 && sTWAOnce === false) {
+        sTWAOnce = true;
+        secondaryTextB.classList.add("h2_active");
+        secondaryTextW.classList.add("h2_active");
+        setTimeout(() => {
+            secondaryTextB.classList.add("h2_active_second");
+            secondaryTextW.classList.add("h2_active_second");
+            secondaryPhotoB.classList.add("corridor_active_second");
+            secondaryPhotoW.classList.add("book_active_second");
+            TB1.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TB2.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TB3.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TB4.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TB5.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW1.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW2.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW3.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW4.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW5.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW6.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+            TW7.style.cssText = `
+                color: var(--accent_color);
+                transition: all 0.4s 0.4s ease-out; 
+            `
+        }, 1000);
     };
 });
 
@@ -866,9 +925,9 @@ window.addEventListener('scroll', () => {
 const sectionApply = document.querySelector("#apply");
 const applyTextH1 = document.querySelector(".title_apply h1");
 const applyTextH2 = document.querySelector(".title_apply h2");
-const apTM1 = document.querySelector(".text_apply text_main_1");
-const apTM2 = document.querySelector(".text_apply text_main_2");
-const apTM3 = document.querySelector(".text_apply text_main_3");
+const apTM1 = document.querySelector(".text_apply .text_main_1");
+const apTM2 = document.querySelector(".text_apply .text_main_2");
+const apTM3 = document.querySelector(".text_apply .text_main_3");
 const apTS1 = document.querySelector(".text_apply .text_sub_1");
 const apTS2 = document.querySelector(".text_apply .text_sub_2");
 const apTS3 = document.querySelector(".text_apply .text_sub_3");
@@ -883,11 +942,15 @@ const apTS11 = document.querySelector(".text_apply .text_sub_11");
 const apTS12 = document.querySelector(".text_apply .text_sub_12");
 const apTS13 = document.querySelector(".text_apply .text_sub_13");
 
+const apTAD = 2.2;
+
+
+const applyTl = gsap.timeline();
 // One-time animation only 
 let apTMAOnce = false;
 let apTSAOnce = false;
 
-// secondary title animation
+// apply animation
 window.addEventListener('scroll', () => {
     const applyTextH1Position = applyTextH1.getBoundingClientRect().top;
     if(applyTextH1Position <= window.innerHeight * 0.5) {
@@ -903,6 +966,11 @@ window.addEventListener('scroll', () => {
         `
         applyTextH2.style.cssText = `
         color: var(--base_text);
+        ease: in-out;
+        transition: 0.5s;
+        `
+        secondaryW.style.cssText = `
+        background: var(--base_white);
         ease: in-out;
         transition: 0.5s;
         `
@@ -924,92 +992,491 @@ window.addEventListener('scroll', () => {
         `
     };
     
-    const applyTextPosition = applyText.getBoundingClientRect().top;
-    if(applyTextPosition <= window.innerHeight * 0.5) {
+    const apTM1Position = apTM1.getBoundingClientRect().top;
+    if(apTM1Position <= window.innerHeight * 0.5 && apTMAOnce === false) {
+        apTMAOnce === true;
 
-        tl  
-        .to(cTM1, cTAD,{
+        applyTl 
+        .to(apTM1, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         })
 
-        .to(cTM2, cTAD,{
+        .to(apTM2, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.2)
 
-        .to(cTM3, cTAD,{
+        .to(apTM3, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.4)
 
-        .to(cTS1, cTAD,{
+        .to(apTS1, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.6)
 
-        .to(cTS2, cTAD,{
+        .to(apTS2, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.8)
 
-        .to(cTS3, cTAD,{
+        .to(apTS3, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1)
 
-        .to(cTS4, cTAD,{
+        .to(apTS4, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.2)
 
-        .to(cTS5, cTAD,{
+        .to(apTS5, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.4)
 
-        .to(cTS6, cTAD,{
+        .to(apTS6, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.6)
 
-        .to(cTS7, cTAD,{
+        .to(apTS7, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.8)
 
-        .to(coursePhoto, cTAD,{
-            opacity: 1,
+        .to(apTS8, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2)
+
+        .to(apTS9, apTAD,{
+            opacity:1,
             x: 0,
             ease: aTMEase,
         },2.2)
+
+        .to(apTS10, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2.4)
+
+        .to(apTS11, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2.6)
+
+        .to(apTS12, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2.8)
+
+        .to(apTS13, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },3)
         //change color orange
-        .fromTo(cTM3,{
-            color: textWhite,
+        .fromTo(apTM2,{
+            color: baseText,
             ease: aTMEase,
         },{
             color: accentColor,
             ease: aTMEase,
-        },0.6) 
+        },1) 
+    };
+});
 
-        .fromTo(courseLink,{
-            opacity: 0,
-            y: 10,
+
+
+
+
+
+
+
+
+
+
+// tertiary animation
+const sectionTertiary = document.querySelector("#tertiary");
+const tertiaryTextH2 = document.querySelector("#tertiary h2");
+const tertiaryPhoto = document.querySelector(".study");
+const teT1 = document.querySelector("#tertiary .text_division_tomo_1");
+const teT2 = document.querySelector("#tertiary .text_division_ni_2");
+const teT3 = document.querySelector("#tertiary .text_division_mana_3");
+const teT4 = document.querySelector("#tertiary .text_division_bu_4");
+const teT5 = document.querySelector("#tertiary .text_division_naka_5");
+const teT6 = document.querySelector("#tertiary .text_division_ma_6");
+const teT7 = document.querySelector("#tertiary .text_division_mo_7");
+const teT8 = document.querySelector("#tertiary .text_division_i_8");
+const teT9 = document.querySelector("#tertiary .text_division_ma_9");
+const teT10 = document.querySelector("#tertiary .text_division_su_10");
+
+const applyText = document.querySelector(".text_apply");
+
+
+// One-time animation only
+let teOnce = false;
+
+window.addEventListener('scroll', () => {
+const applyTextH1Position = applyTextH1.getBoundingClientRect().top;
+const tertiaryPhotoPosition = tertiaryPhoto.getBoundingClientRect().top;
+    if(tertiaryPhotoPosition <= window.innerHeight * 0.5) {
+        sectionTertiary.style.cssText = `
+            color: var(--text_white);
+            background: var(--base_blue);
+            transition: all .4s 0s ease-out;
+        `
+        applyText.style.cssText = `
+            color: var(--text_white);
+            transition: all .4s 0s ease-out;
+        `
+        sectionApply.style.cssText = `
+            background: var(--base_blue);
+            transition: all .4s 0s ease-out;
+        `
+    } else if(applyTextH1Position <= window.innerHeight * 0.5) {
+        sectionTertiary.style.cssText = `
+            color: var(--base_text);
+            background: var(--base_white);
+            transition: all .4s 0s ease-out;
+        `
+        applyText.style.cssText = `
+            color: var(--base_text);
+            transition: all .4s 0s ease-out;
+        `
+        sectionApply.style.cssText = `
+            background: var(--base_white);
+            transition: all .4s 0s ease-out;
+        `
+    };
+
+    if(tertiaryPhotoPosition <= window.innerHeight * 0.5 && teOnce === false) {
+        teOnce === true;
+        tertiaryPhoto.classList.add("study_active");
+        tertiaryTextH2.classList.add("h2_active");
+        setTimeout(() => {
+            teT1.classList.add("orange_trigger_active");
+            teT2.classList.add("orange_trigger_active");
+            teT5.classList.add("orange_trigger_active");
+            teT6.classList.add("orange_trigger_active");
+        },400);
+        
+    };
+
+});
+
+
+
+
+
+// acceptance animation
+const sectionAcceptance = document.querySelector("#acceptance");
+const acceptanceTitleH1 = document.querySelector(".title_acceptance h1");
+const acceptanceTitleH2 = document.querySelector(".title_acceptance h2");
+const acceptanceTM = document.querySelector(".text_acceptance .text_main");
+const acTA1 = document.querySelector(".text_acceptance .text_division_tano_gen_1");
+const acTA2 = document.querySelector(".text_acceptance .text_division_tano_zai_2");
+const acTA3 = document.querySelector(".text_acceptance .text_division_tano_u_3");
+const acTA4 = document.querySelector(".text_acceptance .text_division_tano_ke_4");
+const acTA5 = document.querySelector(".text_acceptance .text_division_tano_tsu_5");
+const acTA6 = document.querySelector(".text_acceptance .text_division_tano_ke_6");
+const acTA7 = document.querySelector(".text_acceptance .text_division_tano_te_7");
+const acTA8 = document.querySelector(".text_acceptance .text_division_tano_i_8");
+const acTA9 = document.querySelector(".text_acceptance .text_division_tano_ru_9");
+const acTA10 = document.querySelector(".text_acceptance .text_division_tano_ko_10");
+const acTA11 = document.querySelector(".text_acceptance .text_division_tano_-_11");
+const acTA12 = document.querySelector(".text_acceptance .text_division_tano_su_12");
+
+const acceptanceTl = gsap.timeline();
+// One-time animation only
+let acOnce = false;
+
+window.addEventListener('scroll', () => {
+const acceptanceTitleH1Position = acceptanceTitleH1.getBoundingClientRect().top;
+    if(acceptanceTitleH1Position <= window.innerHeight * 0.5) {
+        sectionAcceptance.style.cssText = `
+            background: var(--base_white);
+            transition: all .4s 0s ease-out;
+        `
+        sectionTertiary.style.cssText = `
+            background: var(--base_white);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTitleH1.style.cssText = `
+            color: var(--base_text);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTitleH2.style.cssText = `
+            color: var(--base_text);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTM.style.cssText = `
+            color: var(--base_text);
+            transition: all .4s 0s ease-out;
+        `
+    } else {
+        sectionAcceptance.style.cssText = `
+            background: var(--base_blue);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTitleH1.style.cssText = `
+            color: var(--text_white);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTitleH2.style.cssText = `
+            color: var(--base_blue);
+            transition: all .4s 0s ease-out;
+        `
+        acceptanceTM.style.cssText = `
+            color: var(--text_white);
+            transition: all .4s 0s ease-out;
+        `
+    };
+
+    if(acceptanceTitleH1Position <= window.innerHeight * 0.8 && acOnce === false) {
+        acOnce === true;
+
+        acceptanceTl
+        .to(acTA1, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        })
+
+        .to(acTA2, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.2)
+
+        .to(acTA3, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.4)
+
+        .to(acTA4, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.6)
+
+        .to(acTA5, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.8)
+
+        .to(acTA6, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1)
+
+        .to(acTA7, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.2)
+
+        .to(acTA8, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.4)
+
+        .to(acTA9, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.6)
+
+        .to(acTA10, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.8)
+
+        .to(acTA11, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2)
+
+        .to(acTA12, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2.2)
+        //change color orange
+        .fromTo(acTA10,{
+            color: baseText,
             ease: aTMEase,
         },{
-            opacity: 1,
-            y: 0,
+            color: accentColor,
             ease: aTMEase,
-        },2.4) 
+        },2.6)
+
+        .fromTo(acTA11,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.6)
+
+        .fromTo(acTA12,{
+            color: baseText,
+            ease: aTMEase,
+        },{
+            color: accentColor,
+            ease: aTMEase,
+        },2.6)
     };
+
+});
+
+
+
+
+
+
+
+
+
+
+// address animation
+const sectionaddress = document.querySelector("#address");
+const addressTitleH1 = document.querySelector(".title_address h1");
+const addressTitleH2 = document.querySelector(".title_address h2");
+const addressTM = document.querySelector(".text_address .text_main");
+const acceptanceAfter = document.querySelector(".acceptance_corse_background");
+const addressAfter = document.querySelector(".address_background");
+const adTA1 = document.querySelector(".content_address .postal_code");
+const adTA2 = document.querySelector(".content_address .do_shi_ku");
+const adTA3 = document.querySelector(".content_address .jo_chome");
+const adTA4 = document.querySelector(".content_address .building");
+const adTA5 = document.querySelector(".content_address .open_time_1");
+const adTA6 = document.querySelector(".content_address .open_time_2");
+const adTA7 = document.querySelector(".content_address .open_time_3");
+const adMap = document.querySelector(".map_info");
+
+const addressTl = gsap.timeline();
+// One-time animation only
+let adOnce = false;
+
+window.addEventListener('scroll', () => {
+const addressTitleH1Position = addressTitleH1.getBoundingClientRect().top;
+    if(addressTitleH1Position <= window.innerHeight * 0.8) {
+        acceptanceAfter.style.cssText = `
+            width: 100vw;
+            transition: all .4s 0s ease-out;
+        `
+        addressAfter.style.cssText = `
+            width: 100vw;
+            transition: all .4s 0s ease-out;
+        `
+        addressTitleH1.style.cssText = `
+            color: var(--text_white);
+            transition: all .4s 0.2s ease-out;
+        `
+        addressTitleH2.style.cssText = `
+            color: var(--text_white);
+            opacity: 1;
+            transition: all .4s 0.2s ease-out;
+        `
+    } else {
+        acceptanceAfter.style.cssText = `
+            width: 0vw;
+            transition: all .4s 0s ease-out;
+        `
+        addressAfter.style.cssText = `
+            width: 0vw;
+            transition: all .4s 0s ease-out;
+        `
+        addressTitleH1.style.cssText = `
+            color: var(--base_text);
+            transition: all .4s 0.2s ease-out;
+        `
+        addressTitleH2.style.cssText = `
+            color: var(--base_blue);
+            opacity: 0;
+            transition: all .4s 0.2s ease-out;
+        `
+    };
+
+    if(addressTitleH1Position <= window.innerHeight * 0.2 && adOnce === false) {
+        adOnce === true;
+
+        addressTl
+        .to(adTA1, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        })
+
+        .to(adTA2, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.2)
+
+        .to(adTA3, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.4)
+
+        .to(adTA4, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.6)
+
+        .to(adTA5, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },0.8)
+
+        .to(adTA6, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1)
+
+        .to(adTA7, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },1.2)
+        
+        .fromTo(adMap, apTAD,{
+            opacity:0,
+            y: -100,
+            ease: aTMEase,
+        },{    
+            opacity:1,
+            y: -50,
+            ease: aTMEase,
+        },1.6)
+    };
+
 });
