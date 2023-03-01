@@ -313,26 +313,159 @@ button:active .nav_btn_span {
 /* Secondary */
 .corridor {
     opacity: 0;
-    transform: translateX(-7.353vw);
-    transition: all .4s 0s ease-out; 
+    transform: translateX(7.353vw);
+    transition: all 0.2s 0s ease-out; 
 }
 
 .corridor_active {
     opacity: 1;
+    transform: translateX(-700px);
+    transition: all 0.2s 0s ease-out; 
+}
+
+.corridor_active_second {
     transform: translateX(0);
-    transition: all .4s 0s ease-out; 
+    transition: all 0.2s 0s ease-out; 
 }
 
 .book {
     opacity: 0;
-    transform: translateX(7.353vw);
-    transition: all .4s 0s ease-out; 
+    transform: translateX(-7.353vw);
+    transition: all 0.2s 0s ease-out; 
 }
 
 .book_active {
+    opacity: 1;
+    transform: translateX(700px);
+    transition: all 0.2s 0s ease-out; 
+}
+
+.book_active_second {
+    transform: translateX(0);
+    transition: all 0.2s 0s ease-out; 
+}
+
+.secondary_blue h2 {
+    opacity: 0;
+    transform: translate(500px,7.353vw);
+    display: inline-block;
+}
+
+.secondary_white h2 {
+    opacity: 0;
+    transform: translate(-500px,-7.353vw);
+    display: inline-block;
+}
+
+.secondary_blue .h2_active {
+    opacity: 1;
+    transform: translate(600px,0);
+    display: inline-block;
+}
+
+.secondary_white .h2_active {
+    opacity: 1;
+    transform: translate(-600px,0);
+    display: inline-block;
+}
+
+.secondary_blue .h2_active_second {
+    transform: translate(0,0);
+}
+
+.secondary_white .h2_active_second {
+    transform: translate(0,0);
+}
+
+
+/* Tertiary */
+.study {
+    opacity: 0;
+    transform: translateX(10%);
+    transition: all .4s 0s ease-out; 
+}
+
+.study_wrap .study_active {
     opacity: 1;
     transform: translateX(0);
     transition: all .4s 0s ease-out; 
 }
 
-/* Apply */
+#tertiary h2 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .4s 0s ease-out; 
+}
+
+#tertiary .h2_active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all .4s 0s ease-out; 
+}
+
+.orange_trigger_active {
+    color: var(--accent_color);
+    transition: all .4s 0s ease-out; 
+}
+
+/* acceptance */
+#acceptance {
+    background: var(--base_blue);
+    transition: all .4s 0s ease-out;
+}
+
+#acceptance .title_acceptance {
+    color: var(--text_white);
+    transition: all .4s 0s ease-out;
+}
+
+#acceptance .title_acceptance h2 {
+    color: var(--base_blue);
+    transition: all .4s 0s ease-out;
+}
+
+#acceptance .text_main {
+    color: var(--text_white);
+    transition: all .4s 0s ease-out;
+}
+
+.acceptance_corse {
+    position: relative;
+}
+
+.acceptance_corse_background {
+    width: 0;
+    height: 25vw;
+    background: var(--base_blue);
+    position: absolute;
+    top: 500px;
+    left: 0;
+    z-index: 1;
+    transition: all .4s 0s ease-out;
+}
+
+/* address */
+
+.address_background {
+    width: 0;
+    transition: all .4s 0s ease-out;
+}
+
+#address .title_address h1{
+    color: var(--base_text);
+    position: relative;
+    z-index: 1;
+}
+
+#address .title_address h2{
+    color: var(--base_blue);
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.map_info {
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
