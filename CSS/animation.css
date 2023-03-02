@@ -76,9 +76,9 @@
 
 .about_background_blue_box {
     width: 0vw;
-    height: 790px;
+    height: 58.088vw;
     position: absolute;
-    top: 350px;
+    top: 25.735vw;
     left: 0;
     z-index: -500;
     background-color: var(--base_blue);
@@ -319,7 +319,7 @@ button:active .nav_btn_span {
 
 .corridor_active {
     opacity: 1;
-    transform: translateX(-700px);
+    transform: translateX(-51.471vw);
     transition: all 0.2s 0s ease-out; 
 }
 
@@ -336,7 +336,7 @@ button:active .nav_btn_span {
 
 .book_active {
     opacity: 1;
-    transform: translateX(700px);
+    transform: translateX(51.471vw);
     transition: all 0.2s 0s ease-out; 
 }
 
@@ -347,25 +347,25 @@ button:active .nav_btn_span {
 
 .secondary_blue h2 {
     opacity: 0;
-    transform: translate(500px,7.353vw);
+    transform: translate(36.765vw,7.353vw);
     display: inline-block;
 }
 
 .secondary_white h2 {
     opacity: 0;
-    transform: translate(-500px,-7.353vw);
+    transform: translate(-36.765vw,-7.353vw);
     display: inline-block;
 }
 
 .secondary_blue .h2_active {
     opacity: 1;
-    transform: translate(600px,0);
+    transform: translate(44.118vw,0);
     display: inline-block;
 }
 
 .secondary_white .h2_active {
     opacity: 1;
-    transform: translate(-600px,0);
+    transform: translate(-44.118vw,0);
     display: inline-block;
 }
 
