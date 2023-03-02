@@ -96,66 +96,187 @@ window.onload = () => {
 
     // Vertical movement animation
     const tlLoad = gsap.timeline({repeat: 0, repeatDelay: 0});
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        tlLoad
+        .to(heroKitakan, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        },heroDuration)
+        
+        .to(heroSchool, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        .to(heroSapporo, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        // Horizontal movement animation
+        .to(heroKitakan, {
+            x: 0,
+            ease: horizontalEasing,
+        },horizontalTime)
+        
+        .to(heroSchool, {
+            x: 50,
+            ease: horizontalEasing,
+        },horizontalTime)
     
-    tlLoad
-    .to(heroKitakan, {
-        y:0,
-        opacity:1,
-        ease: "power4.out",
-    },heroDuration)
+        .to(heroSapporo, {
+            x: -40,
+            ease: horizontalEasing,
+        },horizontalTime)
     
-    .to(heroSchool, {
-        y:0,
-        opacity:1,
-        ease: "power4.out",
-    })
-    .to(heroSapporo, {
-        y:0,
-        opacity:1,
-        ease: "power4.out",
-    })
-    // Horizontal movement animation
-    .to(heroKitakan, {
-        x: 0,
-        ease: horizontalEasing,
-    },horizontalTime)
+        //Changes color
+        .to(titleWrap, {
+            backgroundColor: baseBlue,
+            ease: horizontalEasing,
+        },horizontalTime + 0.6)
+        
+        .to(heroKitakan, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
     
-    .to(heroSchool, {
-        x: 150,
-        ease: horizontalEasing,
-    },horizontalTime)
-
-    .to(heroSapporo, {
-        x: -120,
-        ease: horizontalEasing,
-    },horizontalTime)
-
-    //Changes color
-    .to(titleWrap, {
-        backgroundColor: baseBlue,
-        ease: horizontalEasing,
-    },horizontalTime + 0.6)
+        .to(heroSchool, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
     
-    .to(heroKitakan, {
-        color: textWhite,
-        ease: horizontalEasing,
-    }, horizontalTime + 0.1)
-
-    .to(heroSchool, {
-        color: textWhite,
-        ease: horizontalEasing,
-    }, horizontalTime + 0.1)
-
-    .to(heroSapporo, {
-        color: accentColor,
-        ease: horizontalEasing,
-    }, horizontalTime + 0.1)
-
-    // Screen unfix
-    setTimeout(() => {
-        const body = document.querySelector("body");
-            body.classList.remove("display_fixde");
-    }, 6500);
+        .to(heroSapporo, {
+            color: accentColor,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        // Screen unfix
+        setTimeout(() => {
+            const body = document.querySelector("body");
+                body.classList.remove("display_fixde");
+        }, 6500);
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        tlLoad
+        .to(heroKitakan, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        },heroDuration)
+        
+        .to(heroSchool, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        .to(heroSapporo, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        // Horizontal movement animation
+        .to(heroKitakan, {
+            x: 0,
+            ease: horizontalEasing,
+        },horizontalTime)
+        
+        .to(heroSchool, {
+            x: 150,
+            ease: horizontalEasing,
+        },horizontalTime)
+    
+        .to(heroSapporo, {
+            x: -120,
+            ease: horizontalEasing,
+        },horizontalTime)
+    
+        //Changes color
+        .to(titleWrap, {
+            backgroundColor: baseBlue,
+            ease: horizontalEasing,
+        },horizontalTime + 0.6)
+        
+        .to(heroKitakan, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        .to(heroSchool, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        .to(heroSapporo, {
+            color: accentColor,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        // Screen unfix
+        setTimeout(() => {
+            const body = document.querySelector("body");
+                body.classList.remove("display_fixde");
+        }, 6500);
+    } else { //PC
+        tlLoad
+        .to(heroKitakan, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        },heroDuration)
+        
+        .to(heroSchool, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        .to(heroSapporo, {
+            y:0,
+            opacity:1,
+            ease: "power4.out",
+        })
+        // Horizontal movement animation
+        .to(heroKitakan, {
+            x: 0,
+            ease: horizontalEasing,
+        },horizontalTime)
+        
+        .to(heroSchool, {
+            x: 150,
+            ease: horizontalEasing,
+        },horizontalTime)
+    
+        .to(heroSapporo, {
+            x: -120,
+            ease: horizontalEasing,
+        },horizontalTime)
+    
+        //Changes color
+        .to(titleWrap, {
+            backgroundColor: baseBlue,
+            ease: horizontalEasing,
+        },horizontalTime + 0.6)
+        
+        .to(heroKitakan, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        .to(heroSchool, {
+            color: textWhite,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        .to(heroSapporo, {
+            color: accentColor,
+            ease: horizontalEasing,
+        }, horizontalTime + 0.1)
+    
+        // Screen unfix
+        setTimeout(() => {
+            const body = document.querySelector("body");
+                body.classList.remove("display_fixde");
+        }, 6500);
+    };
 };
 
 
@@ -176,6 +297,48 @@ const animationTargets = document.querySelectorAll(".animation_target");
 // About title animation
 window.addEventListener('scroll', () => {
 const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
+if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+    if(titleAboutPosition <= window.innerHeight * 0.5) {
+        mainWrap.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--base_text);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            opacity: 0.8;
+            color: var(--base_text);
+            transition: 0.5s;
+        `
+    } else if(titleAboutPosition <= window.innerHeight * 0.95) {
+        mainWrap.style.cssText = `
+            background: var(--base_blue);
+            transition: 0.5s;
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--base_blue);
+            transition: 0.5s;
+        `
+    } else {
+        mainWrap.style.cssText = `
+            background: var(--main_wrap_color_mobile);
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+    };
+} else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
     if(titleAboutPosition <= window.innerHeight * 0.5) {
         mainWrap.style.cssText = `
             background: var(--base_white);
@@ -216,6 +379,49 @@ const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
             transition: 0.5s;
         `
     };
+} else { //PC
+    if(titleAboutPosition <= window.innerHeight * 0.5) {
+        mainWrap.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--base_text);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            opacity: 0.8;
+            color: var(--base_text);
+            transition: 0.5s;
+        `
+    } else if(titleAboutPosition <= window.innerHeight * 0.95) {
+        mainWrap.style.cssText = `
+            background: var(--base_blue);
+            transition: 0.5s;
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--base_blue);
+            transition: 0.5s;
+        `
+    } else {
+        mainWrap.style.cssText = `
+            background: var(--main_wrap_color);
+        `
+        titleAboutH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+        titleAboutH2.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+        `
+    };
+};
+    
 });
 
 // About text animation    
@@ -585,6 +791,7 @@ const courseLink = document.querySelector(".course_link");
 const cTM1 = document.querySelector("#course .text_main_1");
 const cTM2 = document.querySelector("#course .text_main_2");
 const cTM3 = document.querySelector("#course .text_main_3");
+const cTM4 = document.querySelector("#course .text_main_4");
 const cTS1 = document.querySelector("#course .text_sub_1");
 const cTS2 = document.querySelector("#course .text_sub_2");
 const cTS3 = document.querySelector("#course .text_sub_3");
@@ -670,54 +877,60 @@ window.addEventListener('scroll', () => {
             x: 0,
             ease: aTMEase,
         },0.4)
-
-        .to(cTS1, cTAD,{
+        
+        .to(cTM4, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.6)
 
-        .to(cTS2, cTAD,{
+        .to(cTS1, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.8)
 
-        .to(cTS3, cTAD,{
+        .to(cTS2, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1)
 
-        .to(cTS4, cTAD,{
+        .to(cTS3, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.2)
 
-        .to(cTS5, cTAD,{
+        .to(cTS4, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.4)
 
-        .to(cTS6, cTAD,{
+        .to(cTS5, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.6)
 
-        .to(cTS7, cTAD,{
+        .to(cTS6, cTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.8)
 
+        .to(cTS7, cTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },2)
+
         .to(coursePhoto, cTAD,{
             opacity: 1,
             x: 0,
             ease: aTMEase,
-        },2.2)
+        },2.4)
         //change color orange
         .fromTo(cTM3,{
             color: textWhite,
@@ -725,7 +938,7 @@ window.addEventListener('scroll', () => {
         },{
             color: accentColor,
             ease: aTMEase,
-        },0.6) 
+        },1) 
 
         .fromTo(courseLink,{
             opacity: 0,
@@ -928,6 +1141,7 @@ const applyTextH2 = document.querySelector(".title_apply h2");
 const apTM1 = document.querySelector(".text_apply .text_main_1");
 const apTM2 = document.querySelector(".text_apply .text_main_2");
 const apTM3 = document.querySelector(".text_apply .text_main_3");
+const apTM4 = document.querySelector(".text_apply .text_main_4");
 const apTS1 = document.querySelector(".text_apply .text_sub_1");
 const apTS2 = document.querySelector(".text_apply .text_sub_2");
 const apTS3 = document.querySelector(".text_apply .text_sub_3");
@@ -1014,84 +1228,90 @@ window.addEventListener('scroll', () => {
             x: 0,
             ease: aTMEase,
         },0.4)
-
-        .to(apTS1, apTAD,{
+        
+        .to(apTM4, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.6)
 
-        .to(apTS2, apTAD,{
+        .to(apTS1, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },0.8)
 
-        .to(apTS3, apTAD,{
+        .to(apTS2, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1)
 
-        .to(apTS4, apTAD,{
+        .to(apTS3, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.2)
 
-        .to(apTS5, apTAD,{
+        .to(apTS4, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.4)
 
-        .to(apTS6, apTAD,{
+        .to(apTS5, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.6)
 
-        .to(apTS7, apTAD,{
+        .to(apTS6, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },1.8)
 
-        .to(apTS8, apTAD,{
+        .to(apTS7, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },2)
 
-        .to(apTS9, apTAD,{
+        .to(apTS8, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },2.2)
 
-        .to(apTS10, apTAD,{
+        .to(apTS9, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },2.4)
 
-        .to(apTS11, apTAD,{
+        .to(apTS10, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },2.6)
 
-        .to(apTS12, apTAD,{
+        .to(apTS11, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },2.8)
 
-        .to(apTS13, apTAD,{
+        .to(apTS12, apTAD,{
             opacity:1,
             x: 0,
             ease: aTMEase,
         },3)
+
+        .to(apTS13, apTAD,{
+            opacity:1,
+            x: 0,
+            ease: aTMEase,
+        },3.2)
         //change color orange
         .fromTo(apTM2,{
             color: baseText,
