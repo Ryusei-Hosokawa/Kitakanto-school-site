@@ -43,6 +43,8 @@
 
 html {
     width: 100%;
+    overscroll-behavior: none;
+    -webkit-overscroll-behavior: none;
 }
 
 body {
