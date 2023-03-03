@@ -561,6 +561,8 @@ Hero title
 
 #course {
     position: relative;
+    overflow: hidden;
+    padding-bottom: 45vw;
 }
 
 #course::before {
@@ -662,7 +664,7 @@ Hero title
     width: 36.765vw;
     height: 52.574vw;
     display: table;
-    margin: 44.118vw var(--body_side_margin) 0 auto;
+    margin: 0 var(--body_side_margin) 0 auto;
 }
 
 .secondary .secondary_blue h2 {
