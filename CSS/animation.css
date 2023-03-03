@@ -36,8 +36,15 @@
 }
 
 .loading_logo {
-    width: 300px;
+    width: auto;
     height: auto;
+    animation: loading-screen 1.7s forwards ease-out;
+}
+
+.loading_text {
+    font-size: calc(var(--text_sub_size) * 2);
+    color: var(--base_blue);
+    white-space: nowrap;
     animation: loading-screen 1.7s forwards ease-out;
 }
 
@@ -319,11 +326,6 @@ button:active .nav_btn_span {
 
 .corridor_active {
     opacity: 1;
-    transform: translateX(-51.471vw);
-    transition: all 0.2s 0s ease-out; 
-}
-
-.corridor_active_second {
     transform: translateX(0);
     transition: all 0.2s 0s ease-out; 
 }
@@ -336,11 +338,6 @@ button:active .nav_btn_span {
 
 .book_active {
     opacity: 1;
-    transform: translateX(51.471vw);
-    transition: all 0.2s 0s ease-out; 
-}
-
-.book_active_second {
     transform: translateX(0);
     transition: all 0.2s 0s ease-out; 
 }
