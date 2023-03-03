@@ -297,131 +297,130 @@ const animationTargets = document.querySelectorAll(".animation_target");
 // About title animation
 window.addEventListener('scroll', () => {
 const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
-if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
-    if(titleAboutPosition <= window.innerHeight * 0.5) {
-        mainWrap.style.cssText = `
-            background: var(--base_white);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            opacity: 0.8;
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-    } else if(titleAboutPosition <= window.innerHeight * 0.95) {
-        mainWrap.style.cssText = `
-            background: var(--base_blue);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--base_blue);
-            transition: 0.5s;
-        `
-    } else {
-        mainWrap.style.cssText = `
-            background: var(--main_wrap_color_mobile);
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(titleAboutPosition <= window.innerHeight * 0.5) {
+            mainWrap.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                opacity: 0.8;
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+        } else if(titleAboutPosition <= window.innerHeight * 0.95) {
+            mainWrap.style.cssText = `
+                background: var(--base_blue);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--base_blue);
+                transition: 0.5s;
+            `
+        } else {
+            mainWrap.style.cssText = `
+                background: var(--main_wrap_color_mobile);
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+        };
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(titleAboutPosition <= window.innerHeight * 0.5) {
+            mainWrap.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                opacity: 0.8;
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+        } else if(titleAboutPosition <= window.innerHeight * 0.95) {
+            mainWrap.style.cssText = `
+                background: var(--base_blue);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--base_blue);
+                transition: 0.5s;
+            `
+        } else {
+            mainWrap.style.cssText = `
+                background: var(--main_wrap_color);
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+        };
+    } else { //PC
+        if(titleAboutPosition <= window.innerHeight * 0.5) {
+            mainWrap.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                opacity: 0.8;
+                color: var(--base_text);
+                transition: 0.5s;
+            `
+        } else if(titleAboutPosition <= window.innerHeight * 0.95) {
+            mainWrap.style.cssText = `
+                background: var(--base_blue);
+                transition: 0.5s;
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--base_blue);
+                transition: 0.5s;
+            `
+        } else {
+            mainWrap.style.cssText = `
+                background: var(--main_wrap_color);
+            `
+            titleAboutH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+            titleAboutH2.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+            `
+        };
     };
-} else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
-    if(titleAboutPosition <= window.innerHeight * 0.5) {
-        mainWrap.style.cssText = `
-            background: var(--base_white);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            opacity: 0.8;
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-    } else if(titleAboutPosition <= window.innerHeight * 0.95) {
-        mainWrap.style.cssText = `
-            background: var(--base_blue);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--base_blue);
-            transition: 0.5s;
-        `
-    } else {
-        mainWrap.style.cssText = `
-            background: var(--main_wrap_color);
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-    };
-} else { //PC
-    if(titleAboutPosition <= window.innerHeight * 0.5) {
-        mainWrap.style.cssText = `
-            background: var(--base_white);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            opacity: 0.8;
-            color: var(--base_text);
-            transition: 0.5s;
-        `
-    } else if(titleAboutPosition <= window.innerHeight * 0.95) {
-        mainWrap.style.cssText = `
-            background: var(--base_blue);
-            transition: 0.5s;
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--base_blue);
-            transition: 0.5s;
-        `
-    } else {
-        mainWrap.style.cssText = `
-            background: var(--main_wrap_color);
-        `
-        titleAboutH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-        titleAboutH2.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-        `
-    };
-};
-    
 });
 
 // About text animation    
