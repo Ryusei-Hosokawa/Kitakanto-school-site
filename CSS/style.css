@@ -444,7 +444,7 @@ Hero title
 
 .text_about .text_main span {
     margin: 0 -0.588vw 0;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.3vw;
 }
 
 .text_about .text_main .sp_br + span {
@@ -463,9 +463,9 @@ Hero title
 .text_about .text_sub {
     font-size: var(--text_sub_size);
     line-height: 2.574vw;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.1vw;
     color: var(--text_white);
-    margin: 5vw var(--body_side_margin) 2.206vw 38.235vw;
+    margin: 5vw var(--body_side_margin) 2.206vw 50vw;
 }
 
 .text_about .text_sub_10 {
@@ -984,11 +984,12 @@ iframe{
 
 .open_time {
     margin-left: 0.735vw;
+    transform: translateY(-60px);
 }
 
 .open_time span{
     display: inline-block;
-    font-size: 2.941vw;
+    font-size: calc(0.7 * var(--text_sub_size_tablet));
     letter-spacing: .5px;
     margin: 1.471vw 0.735vw 0 -0.147vw;
     color: var(--text_white);
