@@ -16,8 +16,8 @@ Mediaquery
     --text_main_size_mobile: 15vw;
     --text_sub_size_mobile: 8vw;
     --middle_text_size_mobile: 9vw;
-    --main_wrap_color_mobile: linear-gradient(180deg, #F2EDED 3%, var(--blue_black) 3.5%);
-    --main_wrap_color_webkit_mobile: linear-gradient(180deg, #F2EDED 3%, var(--blue_black) 3.5%);
+    --main_wrap_color_mobile: linear-gradient(180deg, var(--base_white) 3%, var(--blue_black) 3.5%);
+    --main_wrap_color_webkit_mobile: linear-gradient(180deg, var(--base_white) 3%, var(--blue_black) 3.5%);
     --read_moro_width_mobile: calc(3 * 6.985vw);
     --read_moro_width_j_mobile: calc(3 * 6.25vw);
     --read_moro_border_width_mobile: calc(3 * 11.029vw);
