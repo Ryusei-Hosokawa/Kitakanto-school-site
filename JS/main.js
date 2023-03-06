@@ -328,6 +328,8 @@ const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
         } else {
             mainWrap.style.cssText = `
                 background: var(--main_wrap_color_mobile);
+                background: var(--main_wrap_color_webkit_mobile);
+                transition: 0.5s;
             `
             titleAboutH1.style.cssText = `
                 color: var(--text_white);
@@ -368,7 +370,9 @@ const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
             `
         } else {
             mainWrap.style.cssText = `
-                background: var(--main_wrap_color);
+                background: var(--main_wrap_color_tablet);
+                background: var(--main_wrap_color_webkit_tablet);
+                transition: 0.5s;
             `
             titleAboutH1.style.cssText = `
                 color: var(--text_white);
@@ -410,6 +414,7 @@ const titleAboutPosition = titleAboutH1.getBoundingClientRect().top;
         } else {
             mainWrap.style.cssText = `
                 background: var(--main_wrap_color);
+                transition: 0.5s;
             `
             titleAboutH1.style.cssText = `
                 color: var(--text_white);
@@ -585,25 +590,64 @@ const aBBB = document.querySelector(".about_background_blue_box");
 const aboutPhoto = document.querySelector(".lesson_desk");
 let aBBBOnce = false;
 
-gsap.set(aboutPhoto,{
-    opacity: 0,
-    x: -300,
-    ease: 'Power4.easeOut',
-});
+
+if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+    gsap.set(aboutPhoto,{
+        opacity: 0,
+        x: -300,
+        y: -20,
+        ease: 'Power4.easeOut',
+    }); 
+} else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+    gsap.set(aboutPhoto,{
+        opacity: 0,
+        x: -300,
+        y: -100,
+        ease: 'Power4.easeOut',
+    }); 
+} else { //PC
+    gsap.set(aboutPhoto,{
+        opacity: 0,
+        x: -300,
+        ease: 'Power4.easeOut',
+    }); 
+};
 
 window.addEventListener('scroll', () => {
     const aBBBPosition = aBBB.getBoundingClientRect().top;
     if(aBBBPosition <= window.innerHeight * 0.8 && aBBBOnce === false) {
         aBBBOnce = true;
-        gsap.to(aboutPhoto, 1,{
-            opacity: 1,
-            x: 0,
-            ease: 'Power4.easeOut',  
-        }),
-        aBBB.style.cssText = `
-            width: 100vw;
-            transition: 1.2s 0.5s cubic-bezier(0.135, 0.53, 0.139, 0.974);
-        `
+        if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+            gsap.to(aboutPhoto, 1,{
+                opacity: 1,
+                x: -30,
+                ease: 'Power4.easeOut',  
+            }, 1),
+            aBBB.style.cssText = `
+                width: 100vw;
+                transition: 1.2s 0.5s cubic-bezier(0.135, 0.53, 0.139, 0.974);
+            `
+        } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+            gsap.to(aboutPhoto, 1,{
+                opacity: 1,
+                x: -50,
+                ease: 'Power4.easeOut',  
+            }, 1),
+            aBBB.style.cssText = `
+                width: 100vw;
+                transition: 1.2s 0.5s cubic-bezier(0.135, 0.53, 0.139, 0.974);
+            `
+        } else { //PC
+            gsap.to(aboutPhoto, 1,{
+                opacity: 1,
+                x: 0,
+                ease: 'Power4.easeOut',  
+            }),
+            aBBB.style.cssText = `
+                width: 100vw;
+                transition: 1.2s 0.5s cubic-bezier(0.135, 0.53, 0.139, 0.974);
+            `
+        };
     };
 });
 
@@ -634,148 +678,421 @@ const jTS5 = document.querySelector(".text_job .text_sub_5");
 const jTS6 = document.querySelector(".text_job .text_sub_6");
 
 const tlJob = gsap.timeline();
-gsap.set(jobPhoto, {
-    opacity: 0,
-    x: -500,
-});
+if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+    gsap.set(jobPhoto, {
+        opacity: 0,
+        x: -50,
+    });      
+} else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+    gsap.set(jobPhoto, {
+        opacity: 0,
+        x: -100,
+    });
+} else { //PC
+    gsap.set(jobPhoto, {
+        opacity: 0,
+        x: -500,
+    });
+};
 // Job title animation
 window.addEventListener('scroll', () => {
     const titleJobPosition = titleJobH1.getBoundingClientRect().top;
-    if(titleJobPosition <= window.innerHeight * 0.45) {
-        sectionJob.style.cssText = `
-            background: var(--base_white);
-            transition: 0.5s;
-            `
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(titleJobPosition <= window.innerHeight * 0.5) {
+            sectionJob.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+                `
             titleJobH1.style.cssText = `
-            color: var(--base_text);
-            transition: 0.5s;
-            `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
             titleJobH2.style.cssText = `
-            color: var(--base_text);
-            transition: 0.5s;
-            `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
             titleWrap.style.cssText = `
-            opacity: 0;
-            transition: 0.5s;
-            `
+                opacity: 0;
+                transition: 0.5s;
+                `
         } else {
             sectionJob.style.cssText = `
-            background: var(--base_blue);
-            transition: 0.5s;
-            `
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
             titleJobH1.style.cssText = `
-            color: var(--text_white);
-            transition: 0.5s;
-            `
+                color: var(--text_white);
+                transition: 0.5s;
+                `
             titleJobH2.style.cssText = `
-            color: var(--base_blue);
-            transition: 0.5s;
-            `
+                color: var(--base_blue);
+                transition: 0.5s;
+                `
             titleWrap.style.cssText = `
-            opacity: 1;
-            background: var(--base_blue);
-            transition: 0.5s;
-            `
+                opacity: 1;
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
+        };  
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(titleJobPosition <= window.innerHeight * 0.5) {
+            sectionJob.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+                `
+            titleJobH1.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
+            titleJobH2.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
+            titleWrap.style.cssText = `
+                opacity: 0;
+                transition: 0.5s;
+                `
+        } else {
+            sectionJob.style.cssText = `
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
+            titleJobH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+                `
+            titleJobH2.style.cssText = `
+                color: var(--base_blue);
+                transition: 0.5s;
+                `
+            titleWrap.style.cssText = `
+                opacity: 1;
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
         };
+    } else { //PC
+        if(titleJobPosition <= window.innerHeight * 0.5) {
+            sectionJob.style.cssText = `
+                background: var(--base_white);
+                transition: 0.5s;
+                `
+            titleJobH1.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
+            titleJobH2.style.cssText = `
+                color: var(--base_text);
+                transition: 0.5s;
+                `
+            titleWrap.style.cssText = `
+                opacity: 0;
+                transition: 0.5s;
+                `
+        } else {
+            sectionJob.style.cssText = `
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
+            titleJobH1.style.cssText = `
+                color: var(--text_white);
+                transition: 0.5s;
+                `
+            titleJobH2.style.cssText = `
+                color: var(--base_blue);
+                transition: 0.5s;
+                `
+            titleWrap.style.cssText = `
+                opacity: 1;
+                background: var(--base_blue);
+                transition: 0.5s;
+                `
+        };
+    };
         
     // job flex and text animation
     //text job animation dilay
     const jTAD = 1.2;
     let jFAOnce = false;
     const textJobPosition = textJob.getBoundingClientRect().top;
-    if(textJobPosition <= window.innerHeight * 0.3 && jFAOnce === false) {
-        jFAOnce = true;
-        
-        tlJob
-        .to(jobPhoto,0.5,{
-            opacity: 1,
-            x: 0,
-            ease: aTMEase,
-        })        
-            
-        .to(jTM1,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.2)
+    const jobPhotoPosition = jobPhoto.getBoundingClientRect().top;
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(textJobPosition <= window.innerHeight * 0.7 && jFAOnce === false) {
+            jFAOnce = true;
+            tlJob 
+            .to(jTM1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(jTM2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(jTM3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(jTM4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(jTM5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(jTS1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(jTS2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(jTS3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(jTS4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(jTS5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(jTS6,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .to(jTM5,{
+                color: accentColor,
+                ease: aTMEase,
+            },1.4)
+    
+            .fromTo(jobLink,jTAD,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },2.4)
 
-        .to(jTM2,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.4)
+            if(jobPhotoPosition <= window.innerHeight * 0.3) {
+                gsap.to(jobPhoto, {
+                    opacity: 1,
+                    x: 0,
+                    ease: aTMEase,
+                });
+            };
+        };  
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(textJobPosition <= window.innerHeight * 0.7 && jFAOnce === false) {
+            jFAOnce = true;
+            tlJob 
+            .to(jTM1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(jTM2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(jTM3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(jTM4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(jTM5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(jTS1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(jTS2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(jTS3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(jTS4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(jTS5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(jTS6,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .to(jTM5,{
+                color: accentColor,
+                ease: aTMEase,
+            },1.4)
+    
+            .fromTo(jobLink,jTAD,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },2.4)
 
-        .to(jTM3,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.6)
-
-        .to(jTM4,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.8)
-
-        .to(jTM5,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1)
-
-        .to(jTS1,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.2)
-
-        .to(jTS2,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.4)
-
-        .to(jTS3,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.6)
-
-        .to(jTS4,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.8)
-
-        .to(jTS5,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },2)
-
-        .to(jTS6,jTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },2.2)
-        //change color orange
-        .fromTo(jTM5,{
-            color: baseText,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        },1.4)
-
-        .fromTo(jobLink,jTAD,{
-            opacity: 0,
-            y: 10,
-            ease: aTMEase,
-        },{
-            opacity: 1,
-            y: 0,
-            ease: aTMEase,
-        },2.4)
+            if(jobPhotoPosition <= window.innerHeight * 0.3) {
+                gsap.to(jobPhoto, {
+                    opacity: 1,
+                    x: 0,
+                    ease: aTMEase,
+                });
+            };
+        };
+    } else { //PC
+        if(textJobPosition <= window.innerHeight * 0.3 && jFAOnce === false) {
+            jFAOnce = true;
+            tlJob
+            .to(jobPhoto,0.5,{
+                opacity: 1,
+                x: 0,
+                ease: aTMEase,
+            })        
+                
+            .to(jTM1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(jTM2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(jTM3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(jTM4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(jTM5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(jTS1,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(jTS2,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(jTS3,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(jTS4,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(jTS5,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(jTS6,jTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .to(jTM5,{
+                color: accentColor,
+                ease: aTMEase,
+            },1.4)
+    
+            .fromTo(jobLink,jTAD,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },2.4)
+        };
     };
 });
 
@@ -801,155 +1118,458 @@ const cTS7 = document.querySelector("#course .text_sub_7");
 
 // One-time animation only
 let cAOnce = false;
+let cSAOnce = false;
 
 const courseTl = gsap.timeline();
-
-gsap.set(coursePhoto,{
-    opacity: 0,
-    x: 500,
-    ease: aTMEase,
-});
-
-// course title animation
-window.addEventListener('scroll', () => {
-    const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
-    if(titleCoursePosition <= window.innerHeight * 0.45) {
-        sectionCourse.style.cssText = `
-        background: var(--base_blue);
-        transition: 0.5s;
-        `
-        titleCourseH1.style.cssText = `
-        color: var(--text_white);
-        transition: 0.5s;
-        `
-        titleCourseH2.style.cssText = `
-        color: var(--text_white);
-        transition: 0.5s;
-        `
-        titleWrap.style.cssText = `
-        opacity: 0;
-        transition: 0.5s;
-        `
-    } else {
-        sectionCourse.style.cssText = `
-        background: var(--base_white);
-        transition: 0.5s;
-        `
-        titleCourseH1.style.cssText = `
-        color: var(--base_text);
-        transition: 0.5s;
-        `
-        titleCourseH2.style.cssText = `
-        color: var(--base_white);
-        transition: 0.5s;
-        `
-        titleWrap.style.cssText = `
-        opacity: 1;
-        background: var(--base_blue);
-        transition: 0.5s;
-        `
-    };
+const courseSTl = gsap.timeline();
+if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+    gsap.set(coursePhoto,{
+        opacity: 0,
+        x: 50,
+        ease: aTMEase,
+    });
     
-    // Course and text animation
-    //text course animation dilay
-    const cTAD = 1.2;
-    const textCoursePosition = courseTextMain.getBoundingClientRect().top;
-    if(textCoursePosition <= window.innerHeight * 0.3 && cAOnce === false) {
-        console.log(`after!!!!!!!!!!!!!!!!!!!!!!`);
-        cAOnce = true;
+    // course title animation
+    window.addEventListener('scroll', () => {
+        const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
+        if(titleCoursePosition <= window.innerHeight * 0.5) {
+            sectionCourse.style.cssText = `
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 0;
+            transition: 0.5s;
+            `
+        } else {
+            sectionCourse.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--base_text);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--base_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 1;
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+        };
         
-        courseTl  
-        .to(cTM1, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        })
+        // Course and text animation
+        //text course animation dilay
+        const cTAD = 1.2;
+        const textCoursePosition = courseTextMain.getBoundingClientRect().top;
+        const cTS1Position = cTS1.getBoundingClientRect().top;
+        if(textCoursePosition <= window.innerHeight * 0.7 && cAOnce === false) {
+            cAOnce = true;
+            courseTl  
+            .to(cTM1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(cTM2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(cTM3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+            
+            .to(cTM4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+            //change color orange
+            .fromTo(cTM4,{
+                color: textWhite,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },1) 
 
-        .to(cTM2, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.2)
+            .to(coursePhoto, cTAD,{
+                opacity: 1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+        };
 
-        .to(cTM3, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.4)
+        if(cTS1Position <= window.innerHeight * 0.7 && cSAOnce === false) {
+            cSAOnce = true;
+            courseSTl 
+            .to(cTS1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(cTS2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(cTS3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(cTS4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(cTS5, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(cTS6, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(cTS7, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+
+            .fromTo(courseLink,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },1.4) 
+        };
+    });
+} else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+    gsap.set(coursePhoto,{
+        opacity: 0,
+        x: 100,
+        ease: aTMEase,
+    });
+    
+    // course title animation
+    window.addEventListener('scroll', () => {
+        const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
+        if(titleCoursePosition <= window.innerHeight * 0.5) {
+            sectionCourse.style.cssText = `
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 0;
+            transition: 0.5s;
+            `
+        } else {
+            sectionCourse.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--base_text);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--base_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 1;
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+        };
         
-        .to(cTM4, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.6)
+        // Course and text animation
+        //text course animation dilay
+        const cTAD = 1.2;
+        const textCoursePosition = courseTextMain.getBoundingClientRect().top;
+        const cTS1Position = cTS1.getBoundingClientRect().top;
+        if(textCoursePosition <= window.innerHeight * 0.7 && cAOnce === false) {
+            cAOnce = true;
+            courseTl  
+            .to(cTM1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(cTM2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(cTM3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+            
+            .to(cTM4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+            //change color orange
+            .fromTo(cTM4,{
+                color: textWhite,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },1) 
 
-        .to(cTS1, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.8)
+            .to(coursePhoto, cTAD,{
+                opacity: 1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+        };
+        if(cTS1Position <= window.innerHeight * 0.7 && cSAOnce === false) {
+            cSAOnce = true;
+            courseSTl 
+            .to(cTS1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(cTS2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(cTS3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(cTS4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(cTS5, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(cTS6, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(cTS7, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
 
-        .to(cTS2, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1)
-
-        .to(cTS3, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.2)
-
-        .to(cTS4, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.4)
-
-        .to(cTS5, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.6)
-
-        .to(cTS6, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.8)
-
-        .to(cTS7, cTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },2)
-
-        .to(coursePhoto, cTAD,{
-            opacity: 1,
-            x: 0,
-            ease: aTMEase,
-        },2.4)
-        //change color orange
-        .fromTo(cTM3,{
-            color: textWhite,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        },1) 
-
-        .fromTo(courseLink,{
-            opacity: 0,
-            y: 10,
-            ease: aTMEase,
-        },{
-            opacity: 1,
-            y: 0,
-            ease: aTMEase,
-        },2.4) 
-    };
-});
+            .fromTo(courseLink,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },1.4) 
+        };
+    });
+} else { //PC
+    gsap.set(coursePhoto,{
+        opacity: 0,
+        x: 500,
+        ease: aTMEase,
+    });
+    
+    // course title animation
+    window.addEventListener('scroll', () => {
+        const titleCoursePosition = titleCourseH1.getBoundingClientRect().top;
+        if(titleCoursePosition <= window.innerHeight * 0.45) {
+            sectionCourse.style.cssText = `
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--text_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 0;
+            transition: 0.5s;
+            `
+        } else {
+            sectionCourse.style.cssText = `
+            background: var(--base_white);
+            transition: 0.5s;
+            `
+            titleCourseH1.style.cssText = `
+            color: var(--base_text);
+            transition: 0.5s;
+            `
+            titleCourseH2.style.cssText = `
+            color: var(--base_white);
+            transition: 0.5s;
+            `
+            titleWrap.style.cssText = `
+            opacity: 1;
+            background: var(--base_blue);
+            transition: 0.5s;
+            `
+        };
+        
+        // Course and text animation
+        //text course animation dilay
+        const cTAD = 1.2;
+        const textCoursePosition = courseTextMain.getBoundingClientRect().top;
+        if(textCoursePosition <= window.innerHeight * 0.3 && cAOnce === false) {
+            cAOnce = true;
+            
+            courseTl  
+            .to(cTM1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(cTM2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(cTM3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+            
+            .to(cTM4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(cTS1, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(cTS2, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(cTS3, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(cTS4, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(cTS5, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(cTS6, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(cTS7, cTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(coursePhoto, cTAD,{
+                opacity: 1,
+                x: 0,
+                ease: aTMEase,
+            },2.4)
+            //change color orange
+            .fromTo(cTM3,{
+                color: textWhite,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },1) 
+    
+            .fromTo(courseLink,{
+                opacity: 0,
+                y: 10,
+                ease: aTMEase,
+            },{
+                opacity: 1,
+                y: 0,
+                ease: aTMEase,
+            },2.4) 
+        };
+    });
+};
 
 
 // Section secondary //
@@ -981,144 +1601,385 @@ let sTWAOnce = false;
 // secondary title animation
 window.addEventListener('scroll', () => {
     const secondaryTextBPosition = secondaryTextB.getBoundingClientRect().top;
-    if(secondaryTextBPosition <= window.innerHeight * 0.65) {
-        secondaryB.style.cssText = `
-        background: var(--base_white);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryW.style.cssText = `
-        background: var(--base_blue);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryPhotoB.style.cssText = `
-        transfrom: translateX(0);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryPhotoW.style.cssText = `
-        transfrom: translateX(0);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryTextB.style.cssText = `
-        color: var(--base_text);
-        transfrom: translateX(0);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryTextW.style.cssText = `
-        color: var(--text_white);
-        transfrom: translateX(0);
-        ease: in-out;
-        transition: 0.5s;
-        `
-    } else {
-        secondaryB.style.cssText = `
-        background: var(--base_blue);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryW.style.cssText = `
-        background: var(--base_white);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryPhotoB.style.cssText = `
-        transfrom: translateX(45.588vw);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryPhotoW.style.cssText = `
-        transfrom: translateX(0);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryTextB.style.cssText = `
-        color: var(--text_white);
-        transfrom: translateX(45.588vw);
-        ease: in-out;
-        transition: 0.5s;
-        `
-        secondaryTextW.style.cssText = `
-        color: var(--base_text);
-        transfrom: translateX(-45.588vw);
-        ease: in-out;
-        transition: 0.5s;
-        `    
+    const secondaryTextWPosition = secondaryTextW.getBoundingClientRect().top;
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(secondaryTextBPosition <= window.innerHeight * 0.65) {
+            secondaryB.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoB.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoW.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+        } else {
+            secondaryB.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoB.style.cssText = `
+            transfrom: translateX(45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoW.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(-45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `    
+        };  
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(secondaryTextWPosition <= window.innerHeight * 0.5) {
+            secondaryB.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+        } else {
+            secondaryB.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(-45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `    
+        };
+    } else { //PC
+        if(secondaryTextBPosition <= window.innerHeight * 0.65) {
+            secondaryB.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoB.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoW.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+        } else {
+            secondaryB.style.cssText = `
+            background: var(--base_blue);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryW.style.cssText = `
+            background: var(--base_white);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoB.style.cssText = `
+            transfrom: translateX(45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryPhotoW.style.cssText = `
+            transfrom: translateX(0);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextB.style.cssText = `
+            color: var(--text_white);
+            transfrom: translateX(45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `
+            secondaryTextW.style.cssText = `
+            color: var(--base_text);
+            transfrom: translateX(-45.588vw);
+            ease: in-out;
+            transition: 0.5s;
+            `    
+        };
     };
-    
+
     // Secondary text animation
     const secondaryPhotoBPosition = secondaryPhotoB.getBoundingClientRect().top;
-    const secondaryPhotoWPosition = secondaryPhotoW.getBoundingClientRect().top;
-    const secondaryTextWPosition = secondaryPhotoW.getBoundingClientRect().top;
-    if(secondaryPhotoBPosition <= window.innerHeight * 0.3 && sPBAOnce === false) {
-        sPBAOnce = true;
-        secondaryPhotoB.classList.add("corridor_active");
-    };
-    if(secondaryPhotoWPosition <= window.innerHeight * 0.7 && sPWAOnce === false) {
-        sPWAOnce = true;
-        secondaryPhotoW.classList.add("book_active");
-    };
-    if(secondaryTextWPosition <= window.innerHeight * 0.7 && sTWAOnce === false) {
-        sTWAOnce = true;
-        secondaryTextB.classList.add("h2_active");
-        secondaryTextW.classList.add("h2_active");
-        setTimeout(() => {
-            secondaryTextB.classList.add("h2_active_second");
-            secondaryTextW.classList.add("h2_active_second");
-            secondaryPhotoB.classList.add("corridor_active_second");
-            secondaryPhotoW.classList.add("book_active_second");
-            TB1.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TB2.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TB3.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TB4.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TB5.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW1.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW2.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW3.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW4.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW5.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW6.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-            TW7.style.cssText = `
-                color: var(--accent_color);
-                transition: all 0.4s 0.4s ease-out; 
-            `
-        }, 1000);
+
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(secondaryPhotoBPosition <= window.innerHeight * 0.1 && sPBAOnce === false) {
+            sPBAOnce = true;
+            secondaryPhotoB.classList.add("corridor_active");
+            secondaryPhotoW.classList.add("book_active");
+        };
+        if(secondaryTextWPosition <= window.innerHeight * 0.7 && sTWAOnce === false) {
+            sTWAOnce = true;
+            secondaryTextB.classList.add("h2_active");
+            secondaryTextW.classList.add("h2_active");
+            setTimeout(() => {
+                secondaryTextB.classList.add("h2_active_second");
+                secondaryTextW.classList.add("h2_active_second");
+                TB1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW6.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW7.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+            }, 1000);
+        };  
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(secondaryTextBPosition <= window.innerHeight * 1 && sPBAOnce === false) {
+            sPBAOnce = true;
+            secondaryPhotoB.classList.add("corridor_active");
+            secondaryPhotoW.classList.add("book_active");
+        };
+        if(secondaryTextBPosition <= window.innerHeight * 0.3 && sTWAOnce === false) {
+            sTWAOnce = true;
+            secondaryTextB.classList.add("h2_active");
+            secondaryTextW.classList.add("h2_active");
+            setTimeout(() => {
+                secondaryTextB.classList.add("h2_active_second");
+                secondaryTextW.classList.add("h2_active_second");
+                TB1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW6.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW7.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+            }, 1000);
+        };
+    } else { //PC
+        if(secondaryPhotoBPosition <= window.innerHeight * 0.3 && sPBAOnce === false) {
+            sPBAOnce = true;
+            secondaryPhotoB.classList.add("corridor_active");
+            secondaryPhotoW.classList.add("book_active");
+        };
+        if(secondaryTextWPosition <= window.innerHeight * 0.7 && sTWAOnce === false) {
+            sTWAOnce = true;
+            secondaryTextB.classList.add("h2_active");
+            secondaryTextW.classList.add("h2_active");
+            setTimeout(() => {
+                secondaryTextB.classList.add("h2_active_second");
+                secondaryTextW.classList.add("h2_active_second");
+                TB1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TB5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW1.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW2.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW3.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW4.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW5.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW6.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+                TW7.style.cssText = `
+                    color: var(--accent_color);
+                    transition: all 0.4s 0.4s ease-out; 
+                `
+            }, 1000);
+        };
     };
 });
 
@@ -1312,7 +2173,7 @@ window.addEventListener('scroll', () => {
             ease: aTMEase,
         },3.2)
         //change color orange
-        .fromTo(apTM2,{
+        .fromTo(apTM3,{
             color: baseText,
             ease: aTMEase,
         },{
@@ -1469,105 +2330,309 @@ const acceptanceTitleH1Position = acceptanceTitleH1.getBoundingClientRect().top;
         `
     };
 
-    if(acceptanceTitleH1Position <= window.innerHeight * 0.8 && acOnce === false) {
-        acOnce === true;
-
-        acceptanceTl
-        .to(acTA1, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        })
-
-        .to(acTA2, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.2)
-
-        .to(acTA3, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.4)
-
-        .to(acTA4, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.6)
-
-        .to(acTA5, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },0.8)
-
-        .to(acTA6, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1)
-
-        .to(acTA7, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.2)
-
-        .to(acTA8, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.4)
-
-        .to(acTA9, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.6)
-
-        .to(acTA10, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },1.8)
-
-        .to(acTA11, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },2)
-
-        .to(acTA12, apTAD,{
-            opacity:1,
-            x: 0,
-            ease: aTMEase,
-        },2.2)
-        //change color orange
-        .fromTo(acTA10,{
-            color: baseText,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        },2.6)
-
-        .fromTo(acTA11,{
-            color: baseText,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        },2.6)
-
-        .fromTo(acTA12,{
-            color: baseText,
-            ease: aTMEase,
-        },{
-            color: accentColor,
-            ease: aTMEase,
-        },2.6)
+    if (window.matchMedia('(max-width: 428px)').matches) { //Mobile
+        if(acceptanceTitleH1Position <= window.innerHeight * 0.1 && acOnce === false) {
+            acOnce === true;
+            
+            acceptanceTl
+            .to(acTA1, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(acTA2, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(acTA3, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(acTA4, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(acTA5, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(acTA6, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(acTA7, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(acTA8, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(acTA9, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(acTA10, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(acTA11, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(acTA12, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .fromTo(acTA10,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA11,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA12,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+        }; 
+    } else if (window.matchMedia('(min-width:429px)').matches && window.matchMedia('(max-width: 1024px)').matches) { //Tablet
+        if(acceptanceTitleH1Position <= window.innerHeight * 0.1 && acOnce === false) {
+            acOnce === true;
+            
+            acceptanceTl
+            .to(acTA1, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(acTA2, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(acTA3, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(acTA4, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(acTA5, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(acTA6, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(acTA7, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(acTA8, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(acTA9, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(acTA10, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(acTA11, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(acTA12, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .fromTo(acTA10,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA11,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA12,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+        }; 
+    } else { //PC
+        if(acceptanceTitleH1Position <= window.innerHeight * 0.8 && acOnce === false) {
+            acOnce === true;
+            
+            acceptanceTl
+            .to(acTA1, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            })
+    
+            .to(acTA2, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.2)
+    
+            .to(acTA3, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.4)
+    
+            .to(acTA4, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.6)
+    
+            .to(acTA5, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },0.8)
+    
+            .to(acTA6, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1)
+    
+            .to(acTA7, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.2)
+    
+            .to(acTA8, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.4)
+    
+            .to(acTA9, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.6)
+    
+            .to(acTA10, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },1.8)
+    
+            .to(acTA11, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2)
+    
+            .to(acTA12, apTAD,{
+                opacity:1,
+                x: 0,
+                ease: aTMEase,
+            },2.2)
+            //change color orange
+            .fromTo(acTA10,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA11,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+    
+            .fromTo(acTA12,{
+                color: baseText,
+                ease: aTMEase,
+            },{
+                color: accentColor,
+                ease: aTMEase,
+            },2.6)
+        };
     };
 
 });
